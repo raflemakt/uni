@@ -13,384 +13,380 @@
 
 \begin{document}
   \maketitle
-	
+    
   \section{Oppgåve 1}
     \subsection{a)}
-		  Det er tri vesentlege nodar i kretsen. Ein av nodene  på oversida av $R1$ og $R2$
-		  er trivielle sidan dei har likt elektrisk potensial.
+      Det er tri vesentlege nodar i kretsen. Ein av nodene  på oversida av $R1$ og $R2$
+      er trivielle sidan dei har likt elektrisk potensial.
 
-		\subsection{b)}
-  		\begin{circuitikz}[american, scale=0.5] \draw
-  			(0,0) to[R, l=$R_{4}$, i=$i_4$] (7,0) -- (7,-2)
-  						to[R, *-, l=$R_2$, i=$i_2$] (7,-7) -- (5,-7)
-  				    to[R, *-, l=$R_1$, i<=$i_1$] (5,-2) -- (7,-2)
-  			(0,0) -- (0,-2) to[R, *-, l=$R_3$, i=$i_3$] (5, -2) -- (7, -2)
-  			(0,-2) to[V, v=$V_s$] (0,-7) -- (5, -7)
-  			{[anchor=south east](7,-2) node {$v_1$}}
-  			;
-  		\end{circuitikz}
+    \subsection{b)}
+      \begin{circuitikz}[american, scale=0.5] \draw
+        (0,0) to[R, l=$R_{4}$, i=$i_4$] (7,0) -- (7,-2)
+              to[R, *-, l=$R_2$, i=$i_2$] (7,-7) -- (5,-7)
+              to[R, *-, l=$R_1$, i<=$i_1$] (5,-2) -- (7,-2)
+        (0,0) -- (0,-2) to[R, *-, l=$R_3$, i=$i_3$] (5, -2) -- (7, -2)
+        (0,-2) to[V, v=$V_s$] (0,-7) -- (5, -7)
+        {[anchor=south east](7,-2) node {$v_1$}}
+        ;
+      \end{circuitikz}
 
-		\subsection{c)}
-  		\begin{equation}
-  		  V_s = 10V
-  		\end{equation}
+    \subsection{c)}
       \begin{equation}
-  			R_1 = R_2 = R_3 = R_4 = 1k\si{\ohm}
-  		\end{equation}
-  		vi utfører spenningsdeling for å finne $v_1$
-  		\begin{equation}
-  			v_1 = \frac{R_1}{R_1+R_2}V_s = \frac{1}{2}10\si{\volt}=5\si{\volt}
-  		\end{equation}
-  		finner $i_{R4}$ ved Ohms lov
-  		\begin{equation}
-  			i_{R4}=\frac{5V}{1\si{\ohm}}=5A
-  		\end{equation}
-  		sidan $R_4 = R_3$ og dei står i parallell vil $i_{R4} = i_{R3}=5A$. Då
-  		veit vi også ved KCL at $i_{Vs}$ er $10A$.
-  		For å finne straumen $i_{R1}$ kan vi bruke formel for straumdeling
-  		\begin{equation}
-  			i_{R1} = \frac{G_1}{G_1 + G_2}10A=\frac{1}{2}10A=5A
-  		\end{equation}
-  		Dermed veit vi alle straumane og spenningane i kretsen.
+        V_s = 10V
+      \end{equation}
+      \begin{equation}
+         R_1 = R_2 = R_3 = R_4 = 1k\si{\ohm}
+      \end{equation}
+      vi utfører spenningsdeling for å finne $v_1$
+      \begin{equation}
+        v_1 = \frac{R_1}{R_1+R_2}V_s = \frac{1}{2}10\si{\volt}=5\si{\volt}
+      \end{equation}
+      finner $i_{R4}$ ved Ohms lov
+      \begin{equation}
+         i_{R4}=\frac{5V}{1\si{\ohm}}=5A
+      \end{equation}
+      sidan $R_4 = R_3$ og dei står i parallell vil $i_{R4} = i_{R3}=5A$. Då
+      veit vi også ved KCL at $i_{Vs}$ er $10A$.
+      For å finne straumen $i_{R1}$ kan vi bruke formel for straumdeling
+      \begin{equation}
+        i_{R1} = \frac{G_1}{G_1 + G_2}10A=\frac{1}{2}10A=5A
+      \end{equation}
+      Dermed veit vi alle straumane og spenningane i kretsen.
   
-  		\begin{center}
-  		\begin{circuitikz}[american] \draw
-  			(0,0) to[R, l=$R_{4}$, i=5<\ampere>] (7,0) -- (7,-2)
-  						to[R, *-, l=$R_2$, i=5<\ampere>] (7,-7) -- (5,-7)
-  				    to[R, *-, l=$R_1$, i<=5<\ampere>] (5,-2) -- (7,-2)
-  			(0,0) -- (0,-2) to[R, *-, l=$R_3$, i=5<\ampere>] (5, -2) -- (7, -2)
-  			(0,-2) to[V, v=10<\volt>, i=10<\ampere>] (0,-7) -- (5, -7)
-  			{[anchor=south east](7,-2) node {$5V$}}
-  			;
-  		\end{circuitikz}
-  		\end{center}
+      \begin{center}
+      \begin{circuitikz}[american] \draw
+        (0,0) to[R, l=$R_{4}$, i=5<\ampere>] (7,0) -- (7,-2)
+              to[R, *-, l=$R_2$, i=5<\ampere>] (7,-7) -- (5,-7)
+              to[R, *-, l=$R_1$, i<=5<\ampere>] (5,-2) -- (7,-2)
+        (0,0) -- (0,-2) to[R, *-, l=$R_3$, i=5<\ampere>] (5, -2) -- (7, -2)
+        (0,-2) to[V, v=10<\volt>, i=10<\ampere>] (0,-7) -- (5, -7)
+        {[anchor=south east](7,-2) node {$5V$}}
+        ;
+      \end{circuitikz}
+      \end{center}
 
-	\section{Oppgåve 2}
-	  \subsection{a)}
-			Effekten forbrukt av motstanden med $25k\si{\ohm}$ er avhengig av straumen
-			som går igjennom maska. Vi veit at $P=Ri^{2}$, derfor er
-			\begin{equation}
-				2mW=25k\si{\ohm}\cdot i^{2} \rightarrow i^2 = \frac{2}{25}10^{-6}\si{\ampere}
-				\rightarrow i = 0,28284\si{\milli\ampere}
-			\end{equation}
-			nå som vi veit straumen som skal til kan vi bruke ohms lov for å finne
-			den ekvivalente resistansen
-			\begin{equation}
-				R_{ekv}=\frac{12\si{\volt}}{0,28284\si{\milli\ampere}}=42,426\si{\kilo\ohm}
-			\end{equation}
-			så finner vi $R$ ved å subtrahere dei andre motstandane sidan dei står i serie
-			\begin{equation}
-				R = 42,426\si{\kilo\ohm}-15\si{\kilo\ohm}-25\si{\kilo\ohm}=2,426\si{\kilo\ohm}
-			\end{equation}
+  \section{Oppgåve 2}
+    \subsection{a)}
+      Effekten forbrukt av motstanden med $25k\si{\ohm}$ er avhengig av straumen
+      som går igjennom maska. Vi veit at $P=Ri^{2}$, derfor er
+      \begin{equation}
+        2mW=25k\si{\ohm}\cdot i^{2} \rightarrow i^2 = \frac{2}{25}10^{-6}\si{\ampere}
+        \rightarrow i = 0,28284\si{\milli\ampere}
+      \end{equation}
+        nå som vi veit straumen som skal til kan vi bruke ohms lov for å finne
+        den ekvivalente resistansen
+      \begin{equation}
+        R_{ekv}=\frac{12\si{\volt}}{0,28284\si{\milli\ampere}}=42,426\si{\kilo\ohm}
+      \end{equation}
+        så finner vi $R$ ved å subtrahere dei andre motstandane sidan dei står i serie
+      \begin{equation}
+        R = 42,426\si{\kilo\ohm}-15\si{\kilo\ohm}-25\si{\kilo\ohm}=2,426\si{\kilo\ohm}
+      \end{equation}
 
-		\subsection{b)}
-		  For at kilden skal levere $3,6\si{\milli\watt}$ må $P=vi$ respekterast. Sidan
-			$P$ og $v$ er definert må vi finne $i$
-			\begin{equation}
-				3,6\si{\milli\watt}=12\si{\volt}\cdot i
-				\rightarrow i=\frac{3,6\cdot10^{-3}}{12}\si{\ampere}
-				\rightarrow i=0,3\si{\milli\ampere}
-			\end{equation}
-			då kan vi finne $R_{ekv}$
-			\begin{equation}
-				v=Ri\rightarrow 12\si{\volt}=R_{ekv}\cdot0,3\si{\milli\ampere}
-				\rightarrow R_{ekv}=\frac{12\si{\volt}}{0,3\si{\milli\ampere}}=40\si{\kilo\ohm}
-			\end{equation}
-			dermed er $R = 40\si{\kilo\ohm}-25\si{\kilo\ohm}-15\si{\kilo\ohm}=0\si{\kilo\ohm}$
+    \subsection{b)}
+      For at kilden skal levere $3,6\si{\milli\watt}$ må $P=vi$ respekterast. Sidan
+      $P$ og $v$ er definert må vi finne $i$
+      \begin{equation}
+        3,6\si{\milli\watt}=12\si{\volt}\cdot i
+        \rightarrow i=\frac{3,6\cdot10^{-3}}{12}\si{\ampere}
+        \rightarrow i=0,3\si{\milli\ampere}
+      \end{equation}
+      då kan vi finne $R_{ekv}$
+      \begin{equation}
+        v=Ri\rightarrow 12\si{\volt}=R_{ekv}\cdot0,3\si{\milli\ampere}
+        \rightarrow R_{ekv}=\frac{12\si{\volt}}{0,3\si{\milli\ampere}}=40\si{\kilo\ohm}
+      \end{equation}
+      dermed er $R = 40\si{\kilo\ohm}-25\si{\kilo\ohm}-15\si{\kilo\ohm}=0\si{\kilo\ohm}$
 
-	\section{Oppgåve 3}
-	  Ved KCL ser vi at $I_1 = 8\si{\milli\ampere}+4\si{\milli\ampere} = 12\si{\milli\ampere}$
-		og $I_2 = 8\si{\milli\ampere}-2\si{\milli\ampere}=6\si{\milli\ampere}$
+    \section{Oppgåve 3}
+      Ved KCL ser vi at $I_1 = 8\si{\milli\ampere}+4\si{\milli\ampere} = 12\si{\milli\ampere}$
+      og $I_2 = 8\si{\milli\ampere}-2\si{\milli\ampere}=6\si{\milli\ampere}$
 
-	\section{Oppgåve 4}
-	  Setter opp KCL i noden på venstresida og ser at
-    \begin{equation}
-			6\si{\milli\ampere}+3\si{\milli\ampere}-1,5I_x=0\rightarrow I_x = 6\si{\milli\ampere}
-		\end{equation}
-		så setter vi opp KCL i noden i midten og finner at
-    \begin{equation}
-			-6\si{\milli\ampere}+3I_x+I_1=0
-			\rightarrow I_1 = 6\si{\milli\ampere}-18\si{\milli\ampere} = -12\si{\milli\ampere}
-		\end{equation}
-		$I_1$ er $-12\si{\milli\ampere}$
+    \section{Oppgåve 4}
+      Setter opp KCL i noden på venstresida og ser at
+      \begin{equation}
+        6\si{\milli\ampere}+3\si{\milli\ampere}-1,5I_x=0\rightarrow I_x = 6\si{\milli\ampere}
+      \end{equation}
+      så setter vi opp KCL i noden i midten og finner at
+      \begin{equation}
+        -6\si{\milli\ampere}+3I_x+I_1=0
+        \rightarrow I_1 = 6\si{\milli\ampere}-18\si{\milli\ampere} = -12\si{\milli\ampere}
+      \end{equation}
+      $I_1$ er $-12\si{\milli\ampere}$
 
-	\newpage
+    \newpage
 
-	\section{Oppgåve 5}
-	  Først kan vi slå sammen alle motstandane i serie sidan vi ikkje er ute etter spenningene
-		mellom dei.
+    \section{Oppgåve 5}
+      Først kan vi slå sammen alle motstandane i serie sidan vi ikkje er ute etter spenningene
+      mellom dei.
 
-		\begin{center}
-		\begin{circuitikz}[american] \draw
-			(0,0) to[V, v=100<\volt>, invert] (0,4)
-						to[R, l=40<\ohm>] (4,4)
-			(0,0) to[R, l=60<\ohm>] (4,0)
-			      to[V, v=$V_2$, invert] (4,4)
-			;
-		\end{circuitikz}
-		\end{center}
+      \begin{center}
+      \begin{circuitikz}[american] \draw
+        (0,0) to[V, v=100<\volt>, invert] (0,4)
+              to[R, l=40<\ohm>] (4,4)
+        (0,0) to[R, l=60<\ohm>] (4,0)
+              to[V, v=$V_2$, invert] (4,4)
+        ;
+      \end{circuitikz}
+      \end{center}
 
-		Med den opplyste effekten levert av $100V$-straumkilden kan vi finne straumen
-		igjennom kretsen.
+      Med den opplyste effekten levert av $100V$-straumkilden kan vi finne straumen
+      igjennom kretsen.
 
-		\begin{equation}
-			P=vi \rightarrow 200\si{\watt} =100\si{\volt}I\rightarrow I = 2\si{\ampere}
-		\end{equation}
-		Så kan vi finne $V_2$ vha. KVL
-		\begin{equation}
-			-100V +40\si{\ohm}I+V_2+60\si{\ohm}I=0\rightarrow V_2 = 100\si{\volt} -80V -120V = -100V
-		\end{equation}
+      \begin{equation}
+        P=vi \rightarrow 200\si{\watt} =100\si{\volt}I\rightarrow I = 2\si{\ampere}
+      \end{equation}
+      Så kan vi finne $V_2$ vha. KVL
+      \begin{equation}
+        -100V +40\si{\ohm}I+V_2+60\si{\ohm}I=0\rightarrow V_2 = 100\si{\volt} -80V -120V = -100V
+      \end{equation}
 
-	\section{Oppgåve 6}
-	  Setter opp KVL i dei fire maskene. Først finner vi $V_x$
-		\begin{equation}
-      -V_x +12V - 8V = 0 \rightarrow V_x = 4V
-		\end{equation}
-		så finner vi $V_2$
-		\begin{equation}
-			4V_x +V_2 -12V = 0 \rightarrow V_2 = 12V-16V =-4V
-		\end{equation}
-		så finner vi $V_3$
-		\begin{equation}
-      -V_2 +V_3 -12V = 0 \rightarrow V_3 = 12V-4V=8V
-		\end{equation}
-		til slutt finner vi $V_1$
-		\begin{equation}
-			12V - V_1 +8V=0 \rightarrow -V_1 = -8V-12V=20V
-		\end{equation}
-		$V_1 = 20V$, $V_2 = -4V$ og $V_3 = 8V$
+    \section{Oppgåve 6}
+      Setter opp KVL i dei fire maskene. Først finner vi $V_x$
+      \begin{equation}
+        -V_x +12V - 8V = 0 \rightarrow V_x = 4V
+      \end{equation}
+      så finner vi $V_2$
+      \begin{equation}
+        4V_x +V_2 -12V = 0 \rightarrow V_2 = 12V-16V =-4V
+      \end{equation}
+      så finner vi $V_3$
+      \begin{equation}
+        -V_2 +V_3 -12V = 0 \rightarrow V_3 = 12V-4V=8V
+      \end{equation}
+      til slutt finner vi $V_1$
+      \begin{equation}
+        12V - V_1 +8V=0 \rightarrow -V_1 = -8V-12V=20V
+      \end{equation}
+       $V_1 = 20V$, $V_2 = -4V$ og $V_3 = 8V$
 
-	\newpage
+    \newpage
 
-	\section{Oppgåve 7}
-		Om $V_2 = 4V$ kan vi finne straumen $I_{V_2}=\frac{4V}{2\si{\ohm}}=2A$. Eg velger
-		å løyse oppgåva vha. maskestraum.
+    \section{Oppgåve 7}
+      Om $V_2 = 4V$ kan vi finne straumen $I_{V_2}=\frac{4V}{2\si{\ohm}}=2A$. Eg velger
+      å løyse oppgåva vha. maskestraum.
 
-		\begin{center}
-		\begin{circuitikz}[american]
-		\draw 
-			(0,3) to [R,l_=5<\ohm>, i=$I_1$](0,0)
-			(4,3) to [V,*-*, l^=24<\volt>] (4,0)
-			(8,3) to [R,l=2<\ohm>, v=$V_2$] (8,0)
-			(0,0) to[R, l=16<\ohm>, *-*] (4,0)
-            to[R, l=2<\ohm>, *-*] (8,0)
-			(0,3) to [R,  l^=3<\ohm>] (4,3)
-				    to [R, l^=4<\ohm>] (8,3)
-      (0,0) to[R, l_=15<\ohm>] (0,-3)
-            to[V, l_=$V_x$, *-*] (4,-3)
-			      to[R, l=2<\ohm>, *-*] (4,0)
-      (4,-3) -- (8,-3)
-            to[cI, l_=$2I_1$] (8,0)
-      ;
-			\draw[->,shift={(2,1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_a$};
-			\draw[->,shift={(6,1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_b$};
-			\draw[->,shift={(2,-1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_c$};
-			\draw[->,shift={(6,-1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_d$};
-		\end{circuitikz}
-    \end{center}
-		Setter opp fem likninger
-		\begin{itemize}
-			\item $33I_c -16I_a -2I_d -V_x = 0$ \hfill (KVL $I_c$)
-			\item $I_b = 2A$ \hfill (oppgitt)
-			\item $3I_a -2I_c = -3A$ \hfill (KVL $I_a$)
-			\item $I_d = 2I_a$ \hfill (oppgitt v./avh. straumkilde og $I_1$)
-			\item $4I_b - I_d = 12A$ \hfill (KVL $I_b$)
-		\end{itemize}
-		Løyser likningssettet som 5x5-matrise og får $I_a = -2A$, $I_b = 2A$,
-		$I_c = -1,5A$, $I_d = -4A$ og $V_x = -9,5\si{\volt}$
-		
+      \begin{center}
+        \begin{circuitikz}[american] \draw 
+          (0,3) to [R,l_=5<\ohm>, i=$I_1$](0,0)
+          (4,3) to [V,*-*, l^=24<\volt>] (4,0)
+          (8,3) to [R,l=2<\ohm>, v=$V_2$] (8,0)
+          (0,0) to[R, l=16<\ohm>, *-*] (4,0)
+                to[R, l=2<\ohm>, *-*] (8,0)
+          (0,3) to [R,  l^=3<\ohm>] (4,3)
+                to [R, l^=4<\ohm>] (8,3)
+          (0,0) to[R, l_=15<\ohm>] (0,-3)
+                to[V, l_=$V_x$, *-*] (4,-3)
+                to[R, l=2<\ohm>, *-*] (4,0)
+          (4,-3) -- (8,-3)
+                to[cI, l_=$2I_1$] (8,0)
+          ;
+          \draw[->,shift={(2,1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_a$};
+          \draw[->,shift={(6,1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_b$};
+          \draw[->,shift={(2,-1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_c$};
+          \draw[->,shift={(6,-1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_d$};
+        \end{circuitikz}
+      \end{center}
+      Setter opp fem likninger
+      \begin{itemize}
+        \item $33I_c -16I_a -2I_d -V_x = 0$ \hfill (KVL $I_c$)
+        \item $I_b = 2A$ \hfill (oppgitt)
+        \item $3I_a -2I_c = -3A$ \hfill (KVL $I_a$)
+        \item $I_d = 2I_a$ \hfill (oppgitt v./avh. straumkilde og $I_1$)
+        \item $4I_b - I_d = 12A$ \hfill (KVL $I_b$)
+      \end{itemize}
+      Løyser likningssettet som 5x5-matrise og får $I_a = -2A$, $I_b = 2A$,
+      $I_c = -1,5A$, $I_d = -4A$ og $V_x = -9,5\si{\volt}$
+        
 
-	\newpage
+    \newpage
 
-	\section{Oppgåve 8}
-	  \begin{equation}
-			9\si{\kilo\ohm}+5\si{\kilo\ohm}=14\si{\kilo\ohm}
-		\end{equation}
+    \section{Oppgåve 8}
+      \begin{equation}
+        9\si{\kilo\ohm}+5\si{\kilo\ohm}=14\si{\kilo\ohm}
+      \end{equation}
 
-		\begin{circuitikz}[scale=0.8] \draw
-			(0,0) to[R, l=5<\kilo\ohm>, o-*] (3,0)
-						to[R, l=3<\kilo\ohm>, *-*] (6,0)
-						to[R, l=14<\kilo\ohm>, *-*] (9,-3) -- (6,-3)
-						to[R, l=3<\kilo\ohm>, *-*] (6,0)
-			(6,-3) -- (3,-3) to[R, l=18\si{\kilo\ohm}, *-*] (3,0)
-			(3,-3) to[short, *-o] (0,-3)
-						;
-		\end{circuitikz}
+      \begin{circuitikz}[scale=0.8] \draw
+        (0,0) to[R, l=5<\kilo\ohm>, o-*] (3,0)
+              to[R, l=3<\kilo\ohm>, *-*] (6,0)
+              to[R, l=14<\kilo\ohm>, *-*] (9,-3) -- (6,-3)
+              to[R, l=3<\kilo\ohm>, *-*] (6,0)
+        (6,-3) -- (3,-3) to[R, l=18\si{\kilo\ohm}, *-*] (3,0)
+        (3,-3) to[short, *-o] (0,-3)
+        ;
+      \end{circuitikz}
 
-	  \begin{equation}
-			\frac{14\si{\kilo\ohm}\cdot3\si{\kilo\ohm}}{14\si{\kilo\ohm}+3\si{\kilo\ohm}}=
-			\frac{42}{17}\si{\kilo\ohm}
-		\end{equation}
+      \begin{equation}
+        \frac{14\si{\kilo\ohm}\cdot3\si{\kilo\ohm}}{14\si{\kilo\ohm}+3\si{\kilo\ohm}}=
+        \frac{42}{17}\si{\kilo\ohm}
+      \end{equation}
 
-	  \begin{equation}
-			\frac{42}{17}\si{\kilo\ohm}+3\si{\kilo\ohm} = \frac{93}{17}\si{\kilo\ohm}
-		\end{equation}
+      \begin{equation}
+        \frac{42}{17}\si{\kilo\ohm}+3\si{\kilo\ohm} = \frac{93}{17}\si{\kilo\ohm}
+      \end{equation}
 
-		\begin{circuitikz}[scale=0.8] \draw
-			(0,0) to[R, l=5<\kilo\ohm>, o-*] (3,0)
-						to[R, l=$\frac{93}{17}\si{\kilo\ohm}$, *-*] (6,-3)
-			(6,-3) -- (3,-3) to[R, l=18\si{\kilo\ohm}, *-*] (3,0)
-			(3,-3) to[short, *-o] (0,-3)
-						;
-		\end{circuitikz}
+      \begin{circuitikz}[scale=0.8] \draw
+        (0,0) to[R, l=5<\kilo\ohm>, o-*] (3,0)
+              to[R, l=$\frac{93}{17}\si{\kilo\ohm}$, *-*] (6,-3)
+        (6,-3) -- (3,-3) to[R, l=18\si{\kilo\ohm}, *-*] (3,0)
+        (3,-3)to[short, *-o] (0,-3)
+        ;
+      \end{circuitikz}
 
-	  \begin{equation}
-			\frac{\frac{93}{17}\si{\kilo\ohm}\cdot 18\si{\kilo\ohm}}
-			{\frac{93}{17}\si{\kilo\ohm} + 18\si{\kilo\ohm}}+5\si{\kilo\ohm}
-			= \frac{1223}{133}\si{\kilo\ohm} \approx 9,195 \si{\kilo\ohm}
-		\end{equation}
-		$R_{AB} = 9,2 \si{\kilo\ohm}$
+      \begin{equation}
+        \frac{\frac{93}{17}\si{\kilo\ohm}\cdot 18\si{\kilo\ohm}}
+        {\frac{93}{17}\si{\kilo\ohm} + 18\si{\kilo\ohm}}+5\si{\kilo\ohm}
+        = \frac{1223}{133}\si{\kilo\ohm} \approx 9,195 \si{\kilo\ohm}
+      \end{equation}
+      $R_{AB} = 9,2 \si{\kilo\ohm}$
 
-	\section{Oppgåve 9}
-	  Først finner vi $R_{ekv}$
-		\begin{equation}
-			R_{ekv}=\left( \frac{12\cdot6}{12+6}+2 \right) \si{\kilo\ohm}
-			\rightarrow R_{ekv}= 6\si{\kilo\ohm}
-		\end{equation}
-		så kan vi finne straumen ut ifrå spenningskilden vha. Ohms lov
-		\begin{equation}
-			I_s=\frac{12\si{\volt}}{6\si{\kilo\ohm}}\rightarrow I_s=2\si{\milli\ampere}
-		\end{equation}
-		nå kan vi finne straumen $I_1$ vha. straumdeling
-		\begin{equation}
-			I_1 = \frac{1/6}{1/12+1/6}2\si{\milli\ampere}
-			\rightarrow I_1 = \frac{4}{3}\si{\milli\ampere}=1,33\si{\milli\ampere}
-		\end{equation}
-		nå som vi veit straumane kan vi rekne ut spenningsfalla over $2k$- og $8k$-motstandane
-		slik at vi kan finne $V_0$
-		\begin{equation}
-			v_{2k}=2\si{\kilo\ohm}\cdot2\si{\milli\ampere}\rightarrow v_{2k}=4\si{\volt}
-		\end{equation}
-		straumen igjennom $R_{8k}$ er $(2-\frac{4}{3})\si{\milli\ampere}
-		=\frac{2}{3}\si{\milli\ampere}$
-		\begin{equation}
-			v_{8k}=8\si{\kilo\ohm}\cdot0,66\si{\milli\ampere}=\frac{16}{3}\si{\volt}
-		\end{equation}
-		$V_0=12\si{\volt}-4\si{\volt}-\frac{16}{3}\si{\volt} = \frac{8}{3}\si{\volt}=2,67\si{\volt}$
+    \section{Oppgåve 9}
+      Først finner vi $R_{ekv}$
+      \begin{equation}
+        R_{ekv}=\left( \frac{12\cdot6}{12+6}+2 \right) \si{\kilo\ohm}
+        \rightarrow R_{ekv}= 6\si{\kilo\ohm}
+      \end{equation}
+      så kan vi finne straumen ut ifrå spenningskilden vha. Ohms lov
+      \begin{equation}
+        I_s=\frac{12\si{\volt}}{6\si{\kilo\ohm}}\rightarrow I_s=2\si{\milli\ampere}
+      \end{equation}
+      nå kan vi finne straumen $I_1$ vha. straumdeling
+      \begin{equation}
+        I_1 = \frac{1/6}{1/12+1/6}2\si{\milli\ampere}
+        \rightarrow I_1 = \frac{4}{3}\si{\milli\ampere}=1,33\si{\milli\ampere}
+      \end{equation}
+      nå som vi veit straumane kan vi rekne ut spenningsfalla over $2k$- og $8k$-motstandane
+      slik at vi kan finne $V_0$
+      \begin{equation}
+        v_{2k}=2\si{\kilo\ohm}\cdot2\si{\milli\ampere}\rightarrow v_{2k}=4\si{\volt}
+      \end{equation}
+      straumen igjennom $R_{8k}$ er $(2-\frac{4}{3})\si{\milli\ampere}
+      =\frac{2}{3}\si{\milli\ampere}$
+      \begin{equation}
+        v_{8k}=8\si{\kilo\ohm}\cdot0,66\si{\milli\ampere}=\frac{16}{3}\si{\volt}
+      \end{equation}
+      $V_0=12\si{\volt}-4\si{\volt}-\frac{16}{3}\si{\volt} = \frac{8}{3}\si{\volt}=2,67\si{\volt}$
 
-	\section{Oppgåve 10}
-	  Her kan vi med ein gong sjå at spenningsfallet over $8k$-motstanden vil vere
-		$8V$ (sidan spenningsfallet over $4k$-motstanden er $4V$ og motstandane står
-		i serie). Dermed er kildespenninga $V_S = 12V$.
+    \section{Oppgåve 10}
+      Her kan vi med ein gong sjå at spenningsfallet over $8k$-motstanden vil vere
+      $8V$ (sidan spenningsfallet over $4k$-motstanden er $4V$ og motstandane står
+      i serie). Dermed er kildespenninga $V_S = 12V$.
 
-	\section{Oppgåve 11}
-	  Ingen av motstandane er i utgangspunktet i serie eller i parallell, men
-		"mercedesstjerna" av $2\si{\ohm}$-motstandar kan vi omgjere vha. Y-Delta–metoden.
-		Sidan alle dei tri motstandane har lik resistans vil vi kun trenge éi likning:
-		\begin{equation}
-			R = \frac{2\cdot2 + 2\cdot2 + 2\cdot2}{2}\si{\ohm}=6\si{\ohm}
-		\end{equation}
-		den nye kretsen ser slik ut
+    \section{Oppgåve 11}
+      Ingen av motstandane er i utgangspunktet i serie eller i parallell, men
+      "mercedesstjerna" av $2\si{\ohm}$-motstandar kan vi omgjere vha. Y-Delta–metoden.
+      Sidan alle dei tri motstandane har lik resistans vil vi kun trenge éi likning:
+      \begin{equation}
+        R = \frac{2\cdot2 + 2\cdot2 + 2\cdot2}{2}\si{\ohm}=6\si{\ohm}
+      \end{equation}
+      den nye kretsen ser slik ut
 
-		\begin{center}
-		\begin{circuitikz}[american, scale=0.8] \draw
-			(0,0) to[short, o-*] (3,0)
-						to[R, l=5<\ohm>, *-*] (8,0) -- (8,-2)
-			(3,0) -- (3,-2) -- (4,-2) to[R, l=6<\ohm>, *-*] (7,-2) -- (8,-2)
-						to[R, l=10<\ohm>, *-*] (8, -5)
-			(3,-2)to[R, l_=10<\ohm>, *-*] (3,-5)
-			(0,-5)to[short, o-*] (8,-5)
-			(4,-2)to[R, l=6<\ohm>, *-*] (4,-5)
-			(7,-2)to[R, l_=6<\ohm>, *-*] (7,-5)
-			;
-		\end{circuitikz}
-		\end{center}
-		slår saman dei parallelle motstandane $\frac{5\cdot6}{5+6} = 2,727$,
-		$\frac{6\cdot10}{6+10}=3,75$
-		\begin{equation}
-			R_{xy}=\frac{3,75\cdot(2,727+3,75)}{3,75+(2,727+3,75)}\si{\ohm}
-			\rightarrow R_{xy} =2,375\si{\ohm} 
-		\end{equation}
+      \begin{center}
+        \begin{circuitikz}[american, scale=0.8] \draw
+          (0,0) to[short, o-*] (3,0)
+                to[R, l=5<\ohm>, *-*] (8,0) -- (8,-2)
+          (3,0) -- (3,-2) -- (4,-2) to[R, l=6<\ohm>, *-*] (7,-2) -- (8,-2)
+                to[R, l=10<\ohm>, *-*] (8, -5)
+          (3,-2)to[R, l_=10<\ohm>, *-*] (3,-5)
+          (0,-5)to[short, o-*] (8,-5)
+          (4,-2)to[R, l=6<\ohm>, *-*] (4,-5)
+          (7,-2)to[R, l_=6<\ohm>, *-*] (7,-5)
+          ;
+        \end{circuitikz}
+      \end{center}
+      slår saman dei parallelle motstandane $\frac{5\cdot6}{5+6} = 2,727$,
+      $\frac{6\cdot10}{6+10}=3,75$
+      \begin{equation}
+        R_{xy}=\frac{3,75\cdot(2,727+3,75)}{3,75+(2,727+3,75)}\si{\ohm}
+        \rightarrow R_{xy} =2,375\si{\ohm} 
+      \end{equation}
 
-	\section{Oppgåve 12}
-	  Som i førige oppgåve står ingen av motstandane i utgangspunktet i parallell eller i
-		serie, så vi må ty til Delta-Y–metoden for å finne $R_{ekv}$. 
-		Eg velger først å transformere Y-en $abc$ rundt noda $n$ og får ein Delta med $def$
-		\begin{equation}
-			R_d = \frac{10\cdot20+20\cdot5+10\cdot5}{10}\si{\ohm}=35\si{\ohm}
-		\end{equation}
-		\begin{equation}
-			R_e = \frac{10\cdot20+20\cdot5+10\cdot5}{20}\si{\ohm}=17,5\si{\ohm}
-		\end{equation}
-		\begin{equation}
-			R_f = \frac{10\cdot20+20\cdot5+10\cdot5}{5}\si{\ohm}=70\si{\ohm}
-		\end{equation}
+    \section{Oppgåve 12}
+      Som i førige oppgåve står ingen av motstandane i utgangspunktet i parallell eller i
+      serie, så vi må ty til Delta-Y–metoden for å finne $R_{ekv}$. 
+      Eg velger først å transformere Y-en $abc$ rundt noda $n$ og får ein Delta med $def$
+      \begin{equation}
+        R_d = \frac{10\cdot20+20\cdot5+10\cdot5}{10}\si{\ohm}=35\si{\ohm}
+      \end{equation}
+      \begin{equation}
+        R_e = \frac{10\cdot20+20\cdot5+10\cdot5}{20}\si{\ohm}=17,5\si{\ohm}
+      \end{equation}
+      \begin{equation}
+        R_f = \frac{10\cdot20+20\cdot5+10\cdot5}{5}\si{\ohm}=70\si{\ohm}
+      \end{equation}
 
-		I denne nye kretsen står $R_f$ i parallell med $30\si{\ohm}$
+      I denne nye kretsen står $R_f$ i parallell med $30\si{\ohm}$
 
-		\begin{center}
-		\begin{circuitikz}[american, scale=0.8] \draw
-			(0,0)  to[V, v=120<\volt>, *-*, invert] (0,6) -- (2,6)
-			       to[R, l_=12.5<\ohm>, *-*] (2, 3)
-						 to[R, l_=15<\ohm>, *-*] (2, 0) -- (0,0)
-			(2,3)  to[R, l_=17.5<\ohm>, *-*] (4,6)
-			(2,3)  to[R, l=35<\ohm>, *-*] (4,0)
-			(4,6)  to[R, l=70<\ohm>, *-*] (4,0)
-			(2,6) -- (6,6) to[R, l=30<\ohm>, *-*] (6,0) -- (2,0)
+      \begin{center}
+        \begin{circuitikz}[american, scale=0.8] \draw
+          (0,0)  to[V, v=120<\volt>, *-*, invert] (0,6) -- (2,6)
+                 to[R, l_=12.5<\ohm>, *-*] (2, 3)
+                 to[R, l_=15<\ohm>, *-*] (2, 0) -- (0,0)
+          (2,3)  to[R, l_=17.5<\ohm>, *-*] (4,6)
+          (2,3)  to[R, l=35<\ohm>, *-*] (4,0)
+          (4,6)  to[R, l=70<\ohm>, *-*] (4,0)
+          (2,6) -- (6,6) to[R, l=30<\ohm>, *-*] (6,0) -- (2,0)
+          ;
+        \end{circuitikz}
+      \end{center}
 
-			;
-		\end{circuitikz}
-		\end{center}
+      Etter å ha slått saman $\frac{70\cdot30}{70+30}\si{\ohm}=21\si{\ohm}$ transformerer
+      vi tilbake
 
-		Etter å ha slått saman $\frac{70\cdot30}{70+30}\si{\ohm}=21\si{\ohm}$ transformerer
-		vi tilbake
+      \begin{equation}
+        R_d = \frac{17,5\cdot21}{21+35+17,5}\si{\ohm}=5\si{\ohm}
+      \end{equation}
+      \begin{equation}
+        R_e = \frac{21\cdot35}{21+35+17,5}\si{\ohm}=10\si{\ohm}
+      \end{equation}
+      \begin{equation}
+        R_f = \frac{35\cdot17,5}{21+35+17,5}\si{\ohm}=\frac{25}{3}\si{\ohm}\approx 8,33\si{\ohm}
+      \end{equation}
 
-		\begin{equation}
-			R_d = \frac{17,5\cdot21}{21+35+17,5}\si{\ohm}=5\si{\ohm}
-		\end{equation}
-		\begin{equation}
-			R_e = \frac{21\cdot35}{21+35+17,5}\si{\ohm}=10\si{\ohm}
-		\end{equation}
-		\begin{equation}
-			R_f = \frac{35\cdot17,5}{21+35+17,5}\si{\ohm}=\frac{25}{3}\si{\ohm}\approx 8,33\si{\ohm}
-		\end{equation}
+      \begin{center}
+        \begin{circuitikz}[american, scale=0.8] \draw
+          (0,0)  to[V, v=120<\volt>, *-*, invert] (0,6) -- (4,6)
+                 to[R, l_=12.5<\ohm>, *-*] (2, 3)
+                 to[R, l_=15<\ohm>, *-*] (4, 0) -- (0,0)
+          (4,0)  to[R, l_=10<\ohm>, *-*] (6,3)
+                 to[R, l_=5<\ohm>, *-*] (4,6)
+          (2,3)  to[R, l=8.33<\ohm>, *-*] (6,3)
+          ;
+        \end{circuitikz}
+      \end{center}
 
-		\begin{center}
-		\begin{circuitikz}[american, scale=0.8] \draw
-			(0,0)  to[V, v=120<\volt>, *-*, invert] (0,6) -- (4,6)
-			       to[R, l_=12.5<\ohm>, *-*] (2, 3)
-						 to[R, l_=15<\ohm>, *-*] (4, 0) -- (0,0)
-			(4,0)  to[R, l_=10<\ohm>, *-*] (6,3)
-						 to[R, l_=5<\ohm>, *-*] (4,6)
-			(2,3)  to[R, l=8.33<\ohm>, *-*] (6,3)
-
-			;
-		\end{circuitikz}
-    \end{center}
-
-		transponerer den nederste trikanten med Y-Delta
-		\begin{equation}
-			R_d = \frac{8,33\cdot10}{8,33+10+15}\si{\ohm}=2,5\si{\ohm}
-		\end{equation}
-		\begin{equation}
-			R_e = \frac{10\cdot15}{8,33+10+15}\si{\ohm}=4,5\si{\ohm}
-		\end{equation}
-		\begin{equation}
-			R_f = \frac{15\cdot8,33}{8,33+10+15}\si{\ohm}=3,75\si{\ohm}
-		\end{equation}
-		
-		\begin{center}
-		\begin{circuitikz}[american, scale=0.8] \draw
-			(0,0)  to[V, v=120<\volt>, *-*, invert] (0,6) -- (2,6)
-			       to[R, l_=12.5<\ohm>, *-*] (2, 3)
-						 to[R, l=3.75<\ohm>, *-*] (5, 3)
-						 to[R, l=2.5<\ohm>, *-*] (8, 3)
-						 to[R, l=5<\ohm>, *-*] (8,6) -- (2,6)
-			(0,0)  -- (5, 0)
-			       to[R, l=4.5<\ohm>, *-*] (5,3)
-
-			;
-		\end{circuitikz}
-		\end{center}
-		Nå står alle motstandane i serie eller parallell, så vi kan rekne ut $R_{ekv}$ på
-		vanleg vis.
-		\begin{equation}
-			R_{ekv}=\left( \frac{16,25\cdot7,5}{16,25+7,5}+4,5 \right)\si{\ohm}=(5,1315+4,5)\si{\ohm}
-			\rightarrow R_{ekv}=9,63\si{\ohm}
-		\end{equation}
-		Ohms lov viser at straumen ut ifrå spenningskilden er
-		\begin{equation}
-			I = \frac{120\si{\volt}}{9,63\si{\ohm}} = 12,46A
-		\end{equation}
+      transponerer den nederste trikanten med Y-Delta
+      \begin{equation}
+        R_d = \frac{8,33\cdot10}{8,33+10+15}\si{\ohm}=2,5\si{\ohm}
+      \end{equation}
+      \begin{equation}
+        R_e = \frac{10\cdot15}{8,33+10+15}\si{\ohm}=4,5\si{\ohm}
+      \end{equation}
+      \begin{equation}
+        R_f = \frac{15\cdot8,33}{8,33+10+15}\si{\ohm}=3,75\si{\ohm}
+      \end{equation}
+        
+      \begin{center}
+        \begin{circuitikz}[american, scale=0.8] \draw
+          (0,0)  to[V, v=120<\volt>, *-*, invert] (0,6) -- (2,6)
+                 to[R, l_=12.5<\ohm>, *-*] (2, 3)
+                 to[R, l=3.75<\ohm>, *-*] (5, 3)
+                 to[R, l=2.5<\ohm>, *-*] (8, 3)
+                 to[R, l=5<\ohm>, *-*] (8,6) -- (2,6)
+          (0,0)  -- (5, 0)
+                 to[R, l=4.5<\ohm>, *-*] (5,3)
+          ;
+        \end{circuitikz}
+      \end{center}
+      Nå står alle motstandane i serie eller parallell, så vi kan rekne ut $R_{ekv}$ på
+      vanleg vis.
+      \begin{equation}
+        R_{ekv}=\left( \frac{16,25\cdot7,5}{16,25+7,5}+4,5 \right)\si{\ohm}=(5,1315+4,5)\si{\ohm}
+        \rightarrow R_{ekv}=9,63\si{\ohm}
+      \end{equation}
+      Ohms lov viser at straumen ut ifrå spenningskilden er
+      \begin{equation}
+        I = \frac{120\si{\volt}}{9,63\si{\ohm}} = 12,46A
+      \end{equation}
 
 \end{document}
