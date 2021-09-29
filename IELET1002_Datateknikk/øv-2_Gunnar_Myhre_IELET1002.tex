@@ -1,0 +1,474 @@
+\documentclass[12pt,a4paper]{article}
+\title{%
+  Øving 2 \\
+  \large IELET1002 - Datateknikk \\
+  }
+\author{Gunnar Myhre, BIELEKTRO}
+
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage[siunitx]{circuitikz}
+\usepackage{karnaugh-map}
+
+\newcommand{\N}{\overline}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+  \maketitle
+    
+  \section{Oppgåve 1}
+    \subsection{a)}
+      Bruker reknereglar T5a, T5b, P4a
+      \begin{equation}
+        T=\N{A + BC}=\N{A}\cdot\N{BC}=\N{A}(\N{B}+\N{C})
+        = \bar{A}\bar{B} + \bar{A}\bar{C}
+      \end{equation}
+    \subsection{b)}
+      T5a
+      \begin{equation}
+        T=\N{AB+\bar{A}\bar{B}} = \N{AB} \cdot \N{\bar{A}\bar{B}}
+      \end{equation}
+      T5b, P4
+      \begin{equation}
+        (\bar{A}+\bar{B})(A+B) = A(\bar{A}+\bar{B}) + B(\bar{A}+\bar{B})
+      \end{equation}
+      P4, P5
+      \begin{equation}
+        A\bar{A}+A\bar{B}+B\bar{A}+B\bar{B} = A\bar{B} + \bar{A}B
+      \end{equation}
+    \subsection{c)}
+      T5b
+      \begin{equation}
+        T=\N{(A+\bar{B})(\bar{B}+C)} = \N{(A+\bar{B})}+\N{(\bar{B}+C)}
+      \end{equation}
+      T5a
+      \begin{equation}
+        \bar{A}B+B\bar{C}
+      \end{equation}
+    
+  \section{Oppgåve 2}
+    \subsection{a)}
+      Setter opp funksjonstabell for uttrykket $F(A,B,C) = (\bar{A}+B)(\bar{B}+A)$. 
+      Uttrykket er allereie nesten på PaSS-form, vi kan legge til begge variantar
+      av den tredje variablen i kvar av summane. (Eks.: $(\bar{A}+B)\rightarrow
+      (\bar{A}+B+C)(\bar{A}+B+\bar{C})$)
+      \begin{center}
+        \begin{tabular}{ |c|c|c|c|c| }
+          \hline
+          Indeks & A & B & C & F(A,B,C) \\
+          \hline
+          0 & $0$ & $0$ & $0$ & 1 \\
+          \hline
+          1 & $0$ & $0$ & $1$ & 1 \\
+          \hline
+          2 & $0$ & $1$ & $0$ & 0 \\
+          \hline
+          3 & $0$ & $1$ & $1$ & 1 \\
+          \hline
+          4 & $1$ & $0$ & $0$ & 0 \\
+          \hline
+          5 & $1$ & $0$ & $1$ & 0 \\
+          \hline
+          6 & $1$ & $1$ & $0$ & 0 \\
+          \hline
+          7 & $1$ & $1$ & $1$ & 1 \\
+          \hline
+        \end{tabular}
+      \end{center}
+      Produkt av standardsumform:
+      \begin{equation}
+         F(A,B,C) = (\bar{A}+B+C)(\bar{A}+B+\bar{C})(A+\bar{B}+C)(\bar{A}+\bar{B}+C)
+      \end{equation}
+      Sum av standardproduktform:
+      \begin{equation}
+        F(A,B,C) = \bar{A}\bar{B}\bar{C}+\bar{A}\bar{B}C+\bar{A}BC+ABC
+      \end{equation}
+      Indeksformer:
+      \begin{equation}
+        F(A,B,C) = \Sigma(0,1,3,7) = \Pi(2,4,5,6)
+      \end{equation}
+
+    \subsection{b)}
+      Indeksformer:
+      \begin{equation}
+        F(x,y,z) = \Sigma(0,3,7) = \Pi(1,2,4,5,6)
+      \end{equation}
+      Algebraisk sum av standardproduktform:
+      \begin{equation}
+        F(x,y,z) = \bar{x}\bar{y}\bar{z} + \bar{x}yz + xyz
+      \end{equation}
+      Algebraisk produkt av standardsumform:
+      \begin{equation}
+        F(x,y,z) = (x+y+\bar{z})(x+\bar{y}+z)(\bar{x}+y+z)(\bar{x}+y+\bar{z})(\bar{x}+\bar{y}+z)
+      \end{equation}
+
+    \subsection{c)}
+      Indeksformer:
+      \begin{equation}
+        F(p,q,r)=\Pi(1,3,5,7)=\Sigma(0,2,4,6)
+      \end{equation}
+      Algebraisk sum av standardproduktform:
+      \begin{equation}
+        F(p,q,r)=\bar{p}\bar{q}\bar{r} + \bar{p}q\bar{r} + p\bar{q}\bar{r} + pq\bar{r}
+      \end{equation}
+      Algebraisk produkt av standardsumform:
+      \begin{equation}
+        F(p,q,r)=(p+q+\bar{r})(p+\bar{q}+\bar{r})(\bar{p}+q+\bar{r})(\bar{p}+\bar{q}+\bar{r})
+      \end{equation}
+
+  \section{Oppgåve 3}
+    Setter uttrykket opp i funksjonstabell
+    \begin{center}
+      \begin{tabular}{ |c|c|c|c|c| }
+        \hline
+        Indeks & r & s & t & G(r,s,t) \\
+        \hline
+        0 & $0$ & $0$ & $0$ & 0 \\
+        \hline
+        1 & $0$ & $0$ & $1$ & 1 \\
+        \hline
+        2 & $0$ & $1$ & $0$ & 1 \\
+        \hline
+        3 & $0$ & $1$ & $1$ & 1 \\
+        \hline
+        4 & $1$ & $0$ & $0$ & 0 \\
+        \hline
+        5 & $1$ & $0$ & $1$ & 0 \\
+        \hline
+        6 & $1$ & $1$ & $0$ & 1 \\
+        \hline
+        7 & $1$ & $1$ & $1$ & 1 \\
+        \hline
+      \end{tabular}
+    \end{center}
+    $G(r,s,t)$ har mintermane 1,2,3,6,7. Desse kan vi sette inn i Karnaugh-diagrammet som
+    einarar.
+    \begin{center}
+      \begin{karnaugh-map}[4][2][1][$st$][$r$]
+        \minterms{1,2,3,6,7}
+        \maxterms{0,4,5}
+        %\indeterminants{}
+        \implicant{1}{3}
+        \implicant{3}{6}
+        %\implicantcorner
+        %\implicantedge{4}{12}{6}{14}
+      \end{karnaugh-map}
+    \end{center}
+    ut ifrå dette diagrammet kan vi skrive om $G(r,s,t) = s + t\N{r}$
+    \newpage
+    Vi kan også fylle Karnaugh-diagrammet direkte.
+    \begin{center}
+      \begin{karnaugh-map}[4][2][1][$st$][$r$]
+        \manualterms{0,$\bar{r}t$,$\scriptstyle{s\bar{t}+\bar{r}s}$,$\bar{r}s$,0,0,$s\bar{t}$,$rst$}
+        \implicant{1}{3}
+        \implicant{3}{6}
+      \end{karnaugh-map}
+    \end{center}
+
+  \section{Oppgåve 4}
+    \subsection{a)}
+      Deler opp i to operasjonar for betre oversikt.
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+          \minterms{0,1,2,4,5,6,8,9,10}
+          \maxterms{3,7,11,12,13,14,15}
+          \implicant{0}{5}
+          \implicantcorner
+        \end{karnaugh-map}
+      \end{center}
+      Raud: $\bar{a}\bar{c}$, grøn: $\bar{b}\bar{d}$
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+          \minterms{0,1,2,4,5,6,8,9,10}
+          \maxterms{3,7,11,12,13,14,15}
+          \implicantedge{0}{4}{2}{6}
+          \implicantedge{0}{1}{8}{9}
+        \end{karnaugh-map}
+      \end{center}
+      Raud: $\bar{a}\bar{d}$, grøn: $\bar{b}\bar{c}$
+
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+          \minterms{0,1,2,4,5,6,8,9,10}
+          \maxterms{3,7,11,12,13,14,15}
+          \implicant{0}{5}
+          \implicantcorner
+          \implicantedge{0}{4}{2}{6}
+          \implicantedge{0}{1}{8}{9}
+        \end{karnaugh-map}
+      \end{center}
+      $F(a,b,c,d) = \bar{a}\bar{c}+\bar{b}\bar{d}+\bar{a}\bar{d}+\bar{b}\bar{c}$
+
+    \subsection{b)}
+      Vi kan bruke Karnaugh-diagram til å finne produkt av sum-forma.
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+          \minterms{0,1,2,4,5,6,8,9,10}
+          \maxterms{3,7,11,12,13,14,15}
+          \implicant{12}{14}
+          \implicant{3}{11}
+          %\implicant{3}{7}
+          %\implicant{15}{11}
+          %\implicant{13}{15}
+          %\implicantedge{12}{12}{14}{14}
+        \end{karnaugh-map}
+      \end{center}
+      vi finner at $F(a,b,c,d) = (\bar{a} + \bar{b})(\bar{c} + \bar{d})$
+  \section{Oppgåve 5}
+    \subsection{a)}
+      Setter opp funksjonstabell for dekodaren med hardkoda verdiar for dei 
+      ti siffersymbola.
+      \begin{center}
+        \begin{tabular}{ |c|c|c|c|c| c|c|c|c|c|c|c| }
+          \hline
+          Indeks & $B_3$ & $B_2$ & $B_1$ & $B_0$ & g & f & e & d & c & b & a \\
+          \hline
+          0 & $0$ & $0$ & $0$ & $0$ &    0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+          \hline
+          1 & $0$ & $0$ & $0$ & $1$ &    0 & 0 & 0 & 0 & 1 & 1 & 0 \\
+          \hline
+          2 & $0$ & $0$ & $1$ & $0$ &    1 & 0 & 1 & 1 & 0 & 1 & 1 \\
+          \hline
+          3 & $0$ & $0$ & $1$ & $1$ &    1 & 0 & 0 & 1 & 1 & 1 & 1 \\
+          \hline
+          4 & $0$ & $1$ & $0$ & $0$ &    1 & 1 & 0 & 0 & 1 & 1 & 0 \\
+          \hline
+          5 & $0$ & $1$ & $0$ & $1$ &    1 & 1 & 0 & 1 & 1 & 0 & 1 \\
+          \hline
+          6 & $0$ & $1$ & $1$ & $0$ &    1 & 1 & 1 & 1 & 1 & 0 & 1 \\
+          \hline
+          7 & $0$ & $1$ & $1$ & $1$ &    0 & 0 & 0 & 0 & 1 & 1 & 1 \\
+          \hline
+          8 & $1$ & $0$ & $0$ & $0$ &    1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+          \hline
+          9 & $1$ & $0$ & $0$ & $1$ &    1 & 1 & 0 & 0 & 1 & 1 & 1 \\
+          \hline
+          10 & $1$ & $0$ & $1$ & $0$ & - & - & - & - & - & - & - \\
+          \hline
+          11 & $1$ & $0$ & $1$ & $1$ & - & - & - & - & - & - & - \\
+          \hline
+          12 & $1$ & $1$ & $0$ & $0$ & - & - & - & - & - & - & - \\
+          \hline
+          13 & $1$ & $1$ & $0$ & $1$ & - & - & - & - & - & - & - \\
+          \hline
+          14 & $1$ & $1$ & $1$ & $0$ & - & - & - & - & - & - & - \\
+          \hline
+          15 & $1$ & $1$ & $1$ & $1$ & - & - & - & - & - & - & - \\
+          \hline
+        \end{tabular}
+      \end{center}
+      Forenkler dei sju funksjonane vha. Karnaugh-diagram med sikte på forma
+      sum av standardprodukt
+      \begin{equation}
+        g(B_3,B_2,B_1,B_0) = \Pi(0,1,7)
+      \end{equation}
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$B_3B_2$][$B_1B_0$]
+          \minterms{2,3,4,5,6,8,9}
+          \maxterms{0,1,7}
+          \implicant{12}{10}
+          \implicant{4}{13}
+          \implicant{2}{10}
+          \implicantedge{3}{2}{11}{10}
+          \indeterminants{10,11,12,13,14,15}
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        g(B_3,B_2,B_1,B_0) = B_1 + B_0\bar{B_3} + \bar{B_0}B_3 + B_3\bar{B_2}
+      \end{equation}
+
+
+
+      \begin{equation}
+        f(B_3,B_2,B_1,B_0) = \Pi(1,2,3,7)
+      \end{equation}
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$B_3B_2$][$B_1B_0$]
+          \minterms{0,4,5,6,8,9}
+          \maxterms{1,2,3,7}
+          \implicant{12}{10}
+          \implicant{0}{8}
+          \implicant{4}{13}
+          \implicantedge{4}{12}{6}{14}
+          \indeterminants{10,11,12,13,14,15}
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        f(B_3,B_2,B_1,B_0) = B_1 + \bar{B_3}\bar{B_2} + B_0\bar{B_3} + B_0\bar{B_2}
+      \end{equation}
+
+
+      \begin{equation}
+        e(B_3,B_2,B_1,B_0) = \Sigma(0,2,6,8)
+      \end{equation}
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$B_3B_2$][$B_1B_0$]
+          \minterms{0,2,6,8}
+          \maxterms{1,3,4,5,7,9}
+          \indeterminants{10,11,12,13,14,15}
+          \implicant{2}{10}
+          \implicantcorner
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        e(B_3,B_2,B_1,B_0) = \bar{B_2}\bar{B_0} + B_3\bar{B_2}
+      \end{equation}
+
+
+      \begin{equation}
+        d(B_3,B_2,B_1,B_0) = \Pi(1,4,7,9)
+      \end{equation}
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$B_3B_2$][$B_1B_0$]
+          \minterms{0,2,3,5,6,8}
+          \maxterms{1,4,7,9}
+          \indeterminants{10,11,12,13,14,15}
+          \implicantcorner
+          \implicant{5}{13}
+          \implicant{2}{10}
+          \implicantedge{3}{2}{11}{10}
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        d(B_3,B_2,B_1,B_0) = \bar{B_2}\bar{B_0} + B_3\bar{B_2} + B_3\bar{B_0} + B_0\bar{B_3}B_2
+      \end{equation}
+
+
+      \begin{equation}
+        c(B_3,B_2,B_1,B_0) = \Pi(2)
+      \end{equation}
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$B_3B_2$][$B_1B_0$]
+          \minterms{0,1,3,4,5,6,7,8,9}
+          \maxterms{2}
+          \indeterminants{10,11,12,13,14,15}
+          \implicant{0}{9}
+          \implicant{1}{11}
+          \implicant{4}{14}
+          \implicant{12}{10}
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        c(B_3,B_2,B_1,B_0) = \bar{B_3} + B_2 + B_1 + B_0
+      \end{equation}
+
+
+      \begin{equation}
+        b(B_3,B_2,B_1,B_0) = \Pi(5,6)
+      \end{equation}
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$B_3B_2$][$B_1B_0$]
+          \minterms{0,1,2,3,4,7,8,9}
+          \maxterms{5,6}
+          \indeterminants{10,11,12,13,14,15}
+          \implicant{12}{10}
+          \implicant{0}{8}
+          \implicant{3}{11}
+          \implicantedge{0}{2}{8}{10}
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        b(B_3,B_2,B_1,B_0) = B_1 + \bar{B_0} + \bar{B_3}\bar{B_2} + B_3B_2
+      \end{equation}
+
+
+      \begin{equation}
+        a(B_3,B_2,B_1,B_0) = \Pi(1,4)
+      \end{equation}
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$B_3B_2$][$B_1B_0$]
+          \minterms{0,2,3,5,6,7,8,9}
+          \maxterms{1,4}
+          \indeterminants{10,11,12,13,14,15}
+          \implicant{3}{10}
+          \implicant{12}{10}
+          \implicant{5}{15}
+          \implicantcorner
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        a(B_3,B_2,B_1,B_0) = B_1 + B_0B_2 + B_3 + \bar{B_0}\bar{B_2}
+      \end{equation}
+      Tilsaman har vi funksjonane:
+      \begin{itemize}
+        \item $a(B_3,B_2,B_1,B_0) = B_1 + B_0B_2 + B_3 + \bar{B_0}\bar{B_2}$
+        \item $b(B_3,B_2,B_1,B_0) = B_1 + \bar{B_0} + \bar{B_3}\bar{B_2} + B_3B_2$
+        \item $c(B_3,B_2,B_1,B_0) = \bar{B_3} + B_2 + B_1 + B_0$
+        \item $d(B_3,B_2,B_1,B_0) = \bar{B_2}\bar{B_0} + B_3\bar{B_2} +
+          B_3\bar{B_0} + B_0\bar{B_3}B_2$
+        \item $e(B_3,B_2,B_1,B_0) = \bar{B_2}\bar{B_0} + B_3\bar{B_2}$
+        \item $f(B_3,B_2,B_1,B_0) = B_1 + \bar{B_3}\bar{B_2} + B_0\bar{B_3} + B_0\bar{B_2}$
+        \item $g(B_3,B_2,B_1,B_0) = B_1 + B_0\bar{B_3} + \bar{B_0}B_3 + B_3\bar{B_2}$
+      \end{itemize}
+
+    \subsection{b)}
+      11 i BCD vil gjeve oss $B_3 = 1, B_2 = 0, B_1 = 1, B_0 = 1$ på inngangane
+      \begin{itemize}
+        \item $a(1,0,1,1) = 1 + 0 + 1 + 0 = 1$
+        \item $b(1,0,1,1) = 1 + 0 + 0 + 0 = 1$
+        \item $c(1,0,1,1) = 0 + 0 + 1 + 1 = 1$
+        \item $d(1,0,1,1) = 0 + 1 + 0 + 0 = 1$
+        \item $e(1,0,1,1) = 0 + 1 = 1$
+        \item $f(1,0,1,1) = 1 + 0 + 0 + 1 = 1$
+        \item $g(1,0,1,1) = 1 + 0 + 0 + 1 = 1$
+      \end{itemize}
+      Alle segmenta vil vere på, og teiknruta vil sjå ut som eit åttetal. Dette er ikkje
+      så rart sidan eg har nytta indeterminantane i Karnaugh-diagramma som 1 og ikkje som 0.
+
+  \section{Ekstraoppgåve}
+    $F(A,B,C,D)=\Pi(0,1,5,7,8,9,10,12,13,14,15)$
+    \subsection{a)}
+      Finner sum av produkt-uttrykket først
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$CD$][$AB$]
+          \minterms{2,3,4,6,11}
+          \maxterms{0,1,5,7,8,9,10,12,13,14,15}
+          \implicantedge{4}{4}{6}{6}
+          \implicantedge{3}{3}{11}{11}
+          \implicant{3}{2}
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        F(A,B,C,D)=\bar{A}B\bar{D} + \bar{B}CD + \bar{A}\bar{B}C
+      \end{equation}
+      setter opp nytt Karnaugh-diagram for å finne produkt av sum-uttrykket
+
+      \begin{center}
+        \begin{karnaugh-map}[4][4][1][$CD$][$AB$]
+          \minterms{2,3,4,6,11}
+          \maxterms{0,1,5,7,8,9,10,12,13,14,15}
+          \implicant{5}{15}
+          \implicantedge{12}{8}{14}{10}
+          \implicantedge{0}{1}{8}{9}
+        \end{karnaugh-map}
+      \end{center}
+      \begin{equation}
+        F(A,B,C,D)=(\bar{B} + \bar{D})(\bar{A} + D)(B + C)
+      \end{equation}
+      
+    \subsection{b)}
+      Bruker P4a for å løyse opp parantesane
+      \begin{equation}
+        (\bar{B} + \bar{D})(\bar{A} + D)(B + C) =
+        (\bar{B}B + \bar{B}C + \bar{D}B + \bar{D}C)(\bar{A}+D)
+      \end{equation}
+      bruker P5b og T2b for å fjerne det første leddet
+      \begin{equation}
+        (\bar{B}C + \bar{D}B + \bar{D}C)(\bar{A}+D)
+      \end{equation}
+      bruker P4a for å løyse opp parantesen
+      \begin{equation}
+        \bar{A}B\bar{D} + \bar{B}CD + \bar{A}\bar{B}C + \bar{D}DB + \bar{D}DC + \bar{A}C\bar{D}
+      \end{equation}
+      bruker P5b og T2b for å fjerne ledd fire og fem
+      \begin{equation}
+        \bar{A}B\bar{D} + \bar{B}CD + \bar{A}\bar{B}C + \bar{A}C\bar{D}
+      \end{equation}
+      Dette er det originale uttrykket men med eit ekstra ledd $\bar{A}C\bar{D}$. Om vi
+      ser på Karnaugh-diagrammet eller funksjonstabell ser vi at dette leddet er redundant,
+      og det kan derfor fjernast uten å påvirke funksjonen. Men korleis ein skal kunne fjerne
+      dette leddet med reknereglar frå boolsk algebra veit eg ikkje.
+
+
+\end{document}
