@@ -346,11 +346,10 @@
           \implicant{0}{9}
           \implicant{1}{11}
           \implicant{4}{14}
-          \implicant{12}{10}
         \end{karnaugh-map}
       \end{center}
       \begin{equation}
-        c(B_3,B_2,B_1,B_0) = \bar{B_3} + B_2 + B_1 + B_0
+        c(B_3,B_2,B_1,B_0) = \bar{B_3} + B_2 + B_0
       \end{equation}
 
 
@@ -362,14 +361,13 @@
           \minterms{0,1,2,3,4,7,8,9}
           \maxterms{5,6}
           \indeterminants{10,11,12,13,14,15}
-          \implicant{12}{10}
           \implicant{0}{8}
           \implicant{3}{11}
           \implicantedge{0}{2}{8}{10}
         \end{karnaugh-map}
       \end{center}
       \begin{equation}
-        b(B_3,B_2,B_1,B_0) = B_1 + \bar{B_0} + \bar{B_3}\bar{B_2} + B_3B_2
+        b(B_3,B_2,B_1,B_0) = \bar{B_0} + \bar{B_3}\bar{B_2} + B_3B_2
       \end{equation}
 
 
@@ -393,8 +391,8 @@
       Tilsaman har vi funksjonane:
       \begin{itemize}
         \item $a(B_3,B_2,B_1,B_0) = B_1 + B_0B_2 + B_3 + \bar{B_0}\bar{B_2}$
-        \item $b(B_3,B_2,B_1,B_0) = B_1 + \bar{B_0} + \bar{B_3}\bar{B_2} + B_3B_2$
-        \item $c(B_3,B_2,B_1,B_0) = \bar{B_3} + B_2 + B_1 + B_0$
+        \item $b(B_3,B_2,B_1,B_0) = \bar{B_0} + \bar{B_3}\bar{B_2} + B_3B_2$
+        \item $c(B_3,B_2,B_1,B_0) = \bar{B_3} + B_2 + B_0$
         \item $d(B_3,B_2,B_1,B_0) = \bar{B_2}\bar{B_0} + B_3\bar{B_2} +
           B_3\bar{B_0} + B_0\bar{B_3}B_2$
         \item $e(B_3,B_2,B_1,B_0) = \bar{B_2}\bar{B_0} + B_3\bar{B_2}$
@@ -403,18 +401,18 @@
       \end{itemize}
 
     \subsection{b)}
-      11 i BCD vil gjeve oss $B_3 = 1, B_2 = 0, B_1 = 1, B_0 = 1$ på inngangane
+      1111 vil vere 15 i BCD som er ein ugyldig verdi, men vi kan sjå kva som vert påtrykt
+      i utgangane.
       \begin{itemize}
-        \item $a(1,0,1,1) = 1 + 0 + 1 + 0 = 1$
-        \item $b(1,0,1,1) = 1 + 0 + 0 + 0 = 1$
-        \item $c(1,0,1,1) = 0 + 0 + 1 + 1 = 1$
-        \item $d(1,0,1,1) = 0 + 1 + 0 + 0 = 1$
-        \item $e(1,0,1,1) = 0 + 1 = 1$
-        \item $f(1,0,1,1) = 1 + 0 + 0 + 1 = 1$
-        \item $g(1,0,1,1) = 1 + 0 + 0 + 1 = 1$
+        \item $a(1,1,1,1) = 1+1+1+0=1$
+        \item $b(1,1,1,1) = 0+0+1=1$
+        \item $c(1,1,1,1) = 0+1+1=1$
+        \item $d(1,1,1,1) = 0+0+0+0=0$
+        \item $e(1,1,1,1) = 0+0=0$
+        \item $f(1,1,1,1) = 1+0+0+0=1$
+        \item $g(1,1,1,1) = 1+0+0+0=1$
       \end{itemize}
-      Alle segmenta vil vere på, og teiknruta vil sjå ut som eit åttetal. Dette er ikkje
-      så rart sidan eg har nytta indeterminantane i Karnaugh-diagramma som 1 og ikkje som 0.
+      a,b,c,f og g vil vere på, og displayet vil vise eit nital.
 
   \section{Ekstraoppgåve}
     $F(A,B,C,D)=\Pi(0,1,5,7,8,9,10,12,13,14,15)$
