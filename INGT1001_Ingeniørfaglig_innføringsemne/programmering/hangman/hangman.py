@@ -1,6 +1,14 @@
 from random import randint
+from pathlib import Path
 
-dictionary = open("words.norwegian.txt", "r").read().split()
+# This spaghetti code was written during a lecture, but it came out surprisingly
+# entertaining. The dictionary contains over 60 000 norwegian words as
+# line separated strings. Ascii art is shamelessly stolen from the internet.
+
+p = Path(__file__).with_name("words.norwegian.txt")
+with p.open("r") as f:
+    dictionary = f.read().split()
+
 
 MAX_TRIES = 5
 
@@ -202,7 +210,6 @@ def main():
     print(menu_gfx)
     print(f"Velkommen til Hangman. Du har {str(MAX_TRIES)} sjanser. (Skriv 0 for å avslutte)")
     print("Ordet du skal gjette er: " + print_word)
-    #print("Debug----> svaret er: " + str(word))
 
     while True:
         if tries == 0:
@@ -216,7 +223,6 @@ def main():
                           cast=str,
                           condition=lambda s: len(s) == 1,
                           error_message="Ugyldig input, må vere ein bokstav")
-        # debug
         if guess == "0":
             exit()
         if guess not in word:
