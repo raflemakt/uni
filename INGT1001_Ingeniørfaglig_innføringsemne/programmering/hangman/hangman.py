@@ -209,12 +209,12 @@ def main():
 
     print(menu_gfx)
     print(f"Velkommen til Hangman. Du har {str(MAX_TRIES)} sjanser. (Skriv 0 for å avslutte)")
-    print("Ordet du skal gjette er: " + print_word)
+    print("Ordet du skal gjette er: " + " ".join(print_word))
 
     while True:
-        if tries == 0:
+        if tries <= 0:
             print("Du TAPTE!\n")
-            print("Svaret var " + word)
+            print("Svaret var " + 14*" " + " ".join(word))
             exit()
         if print_word.count("_") == 0:
             print("DU VANT, GRATULERER!")
@@ -229,14 +229,14 @@ def main():
             print("Feil!")
             tries -= 1
             draw_gallows(tries)
-            print(print_word)
+            print(25*" " + " ".join(print_word))
             word.replace(guess, "")
 
         if guess in guessed_letters:
             print("Allerede gjettet!")
             tries -= 1
             draw_gallows(tries)
-            print(print_word)
+            print(25*" " + " ".join(print_word))
             word.replace(guess, "")
 
         elif guess in word:
@@ -244,7 +244,7 @@ def main():
             replace_positions = find_all_enumerate(word, guess)
             for pos in replace_positions:
                 print_word = print_word[0:pos] + guess + print_word[pos+1:]
-            print(print_word)
+            print(25*" " + " ".join(print_word))
 
         guessed_letters.append(guess)
 
