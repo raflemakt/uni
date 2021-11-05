@@ -248,8 +248,10 @@
     a og b for å finne $I_N$. Kjeldetransformerer 12V-kjelda.
     \begin{center}
       \begin{circuitikz}[american] \draw
-        (0,0)  to[I, l=2<\ampere>, invert] (0,-3) -- (3, -3)
-               to[I, l=3<\ampere>] (3,0) -- (0,0)
+        (-3,0) to[I, l=2<\ampere>, invert] (-3,-3) -- (0, -3)
+               to[I, l=3<\ampere>] (0,0) -- (-3,0)
+        (0,0) -- (3,0)
+               to[R, l=4<\ohm>] (3,-3)
         (0,-3) -- (3,-3)
                to[R, l=8<\ohm>] (6,-3) -- (9,-3) -- (9,0) -- (6,0)
                to[R, l=5<\ohm>] (6,-3)
