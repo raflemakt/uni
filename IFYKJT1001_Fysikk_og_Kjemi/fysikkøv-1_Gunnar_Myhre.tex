@@ -1,0 +1,220 @@
+\documentclass[12pt,a4paper]{article}
+\title{%
+  Øving 1 \\
+  \large IFYKJT1001 - Fysikk/Kjemi \\
+  }
+\author{Gunnar Myhre, BIELEKTRO}
+
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage{amsmath}
+\usepackage{siunitx}
+
+\usepackage{graphicx}
+\graphicspath{ {./images} }
+
+\setlength\parindent{0pt}
+
+\begin{document}
+  \maketitle
+
+  \section*{Oppgåve 1}
+    \subsection*{a)}
+      Ved addisjon og subtraksjon er det talet med færrast gjeldande siffer 
+      etter komma som bestemmer mengda gjeldande siffer bak komma i svaret.
+      \begin{equation}
+        1,53 + 2,786 + 3,3 = 7,6
+      \end{equation}
+
+    \subsection*{b)}
+      \begin{equation}
+        400 nm = x \cdot cm \rightarrow x = \frac{400 \cdot 10^{-9}}{10^{-2}} 
+        \rightarrow 400 \cdot 10^{-7} cm \rightarrow 0,0000004 cm
+      \end{equation}
+
+    \subsection*{c)}
+      \begin{itemize}
+        \item $Mb = \frac{10^6}{9}ord$
+        \item $CD = 6\cdot 10^2 \frac{10^6}{9}ord = 3\cdot 10^7 ord$
+      \end{itemize}
+      Det er plass til ca 30 millionar ord på CDen
+
+  \section*{Oppgåve 2}
+    \subsection*{a) 1)}
+      Gjennomsnittsakselerasjonen for ballen er gitt ved
+      \begin{equation}
+        \bar{a} = \frac{\Delta V}{\Delta t} = \frac{73,14 m/s}{30,0\cdot 10^{-3} s}
+        \rightarrow 2,44 \cdot 10^3 m/s^2
+      \end{equation}
+
+    \subsection*{a) 2)}
+      Strekningen ballen beveger seg frå $t = 0ms$ til $t = 30,0ms$ er gitt ved
+      \begin{equation}
+        s = v_0 t + \frac{1}{2} at^2 \rightarrow
+        s = \frac{2,44 \cdot 10^3m/s^2}{2}(30,0\cdot 10^{-3} s)^2 = 1,10m = 110 cm
+      \end{equation}
+
+    \subsection*{b)}
+      Bilen vil ha tilbakelagt distansen 211m etter
+      \begin{equation}
+        s = vt \rightarrow 211m = 32,4m/s \rightarrow 6,51s
+      \end{equation}
+      om vi antar at politibilen har konstant akselerasjon mellom $t=0,74s$ og
+      $t=6,51s$ vil akselerasjonen vere gitt ved
+      \begin{equation}
+        s = v_0t + \frac{1}{2}at^2 \rightarrow a = 2\frac{s}{t^2}
+        \rightarrow a = 2\frac{211m}{(6,51s - 0,74s)^2} = 12,7m/s^2
+      \end{equation}
+
+  \section*{Oppgåve 3}
+    \begin{itemize}
+      \item \textbf{C}: Akselerasjonen hittil har vore positiv og farta var 0
+        ved $t=0$, derfor er farta størst ved $t_3$
+      \item \textbf{E}: Oppbremsing $\Leftrightarrow$ negativ akselerasjon
+      \item \textbf{H}: Akselerasjonen er den deriverte av farta $v'(t) = a(t)$, så om
+        vi integrerer $a(t)$ på området $[t_1, t_2]$ får vi fartsendringa i løpet av
+        dette intervallet
+    \end{itemize}
+
+  \section*{Oppgåve 4}
+    \subsection*{a)}
+      Farta $v_0$ horisontalt er uavhengig av farta i vertikal retning, og sidan vi ikkje
+      tar omsyn til luftmotstand er farta i horisontal retning konstant. Vi finner tida
+      det tar før svømmaren har falt $9,00m$ i vertikal retning
+
+      \begin{equation}
+        s = v_0 t + \frac{1}{2} a t^2 \rightarrow t = \sqrt{2\frac{-9,00m}{-9,81m/s^2}}
+        \rightarrow t = 1,35s
+      \end{equation}
+      Svømmaren må bruke maksimalt $1,35s$ på å traversere utstpringets lengde i horisontal
+      retning, og må derfor minst ha ein fart på
+      \begin{equation}
+        v_0 = \frac{\Delta s}{\Delta t} = \frac{1,75 m}{1,35 s} = 1,30 m/s
+      \end{equation}
+      for å kunne unngå å treffe utspringet med null margin.
+
+    \subsection*{b)}
+      Sidan vi reknar med ein enkel modell m.a. utan luftmotstand er det kun tyngdekrafta
+      som verker på kanonkula. Derfor vil fallet vere uavhengig av farta i horisontal
+      retning, og kula vil treffe bakken etter 
+      \begin{equation}
+        s = v_0 t + \frac{1}{2} a t^2 \rightarrow t = \sqrt{2\frac{-0,80m}{-9,81m/s^2}}
+        \rightarrow t = 0,40s
+      \end{equation}
+
+    \subsection*{c)}
+      Banen til kule \textbf{B} treffer bakken først sidan den reiser kortast vei i
+      y-retning, og den einaste krafta som verker på kulene er tyngdekrafta.
+      Dette kan vi også demonstrere matematisk ved å sjå på ein bevegelseslikning:
+      \begin{equation}
+        s = v_0 t + \frac{1}{2}at^2
+      \end{equation}
+      For begge banane er $v_0$ lik, og akselerasjonen $a = -g$. Strekninga er dermed
+      proporsjonal med tida. Sidan fart i horisontal og vertikal retning er uavhengige vil
+      dette gjere at A bruker lengre tid i sin bane enn B.
+      \bigskip
+
+      Vi kan også vise at dette stemmer ved å dekomponere fartsvektorane til
+      A og B og sjå på delvektorane (katetane i den rettvinkla trikanten)
+      \begin{itemize}
+        \item $\vec{v_{0A}} = \vec{v_{0B}} = v_0$
+        \item $\vec{v_A}(t) = (v_0 cos \alpha)\vec{i} + (v_0 sin \alpha - gt)\vec{j}$
+        \item $\vec{v_B}(t) = (v_0 cos \beta)\vec{i} + (v_0 sin \beta - gt)\vec{j}$
+      \end{itemize}
+      på teikninga ser vi at
+      \begin{equation}
+        \frac{\pi}{2} > \alpha > \beta > 0
+      \end{equation}
+      og dette gjer at 
+      \begin{equation}
+        \left( t_A = \frac{v_0 sin\alpha}{g} \right) >
+        \left( t_B = \frac{v_0 sin\beta}{g} \right)
+      \end{equation}
+
+
+    \subsection*{d)}
+      Informasjonen som er oppgitt i oppgåva er som følger:
+      \begin{itemize}
+        \item $s_x = 2,1m$
+        \item $s_y = -0,21m$
+        \item $v_0 = 5,3m/s$
+        \item $g = -9,81m/s^2$
+      \end{itemize}
+      eg dekomponerer bevegelseslikningene for konstant akselerasjon og
+      tar hensyn til at det kun er éi kraft som virker på systemet, nemlig
+      tyngdekrafta i y-retning
+      
+      \begin{center}
+        \begin{tabular}{ |c|c|c| }
+          \hline
+          generell & x & y \\
+          \hline
+          $s=vt$ & $s_x = v_x t$ & $s_y = v_y t$ \\
+          \hline
+          $v=v_0 + at$ & $v_x = v_{0x}$ & $v_y = v_{0y}+gt$ \\
+          \hline
+          $s=v_0t + \frac{1}{2}at^2$ &
+          $s_x=v_{0x}t$ &
+          $s_y=v_{0y}t + \frac{1}{2}gt^2$ \\
+          \hline
+          $s=\frac{v+v_{0}}{2}t$ &
+          $s_x=\frac{v_x+v_{0x}}{2}t$ &
+          $s_y=\frac{v_y+v_{0y}}{2}t$ \\
+          \hline
+          $v^2 - v^2_{0} = 2as$ &
+          $v^2_x - v^2_{0x} = 0$ &
+          $v^2_y - v^2_{0y} = 2gs_y$ \\
+          \hline
+
+        \end{tabular}
+      \end{center}
+      ved å dekomponere $\vec{v_0}$ får vi fleire likninger å jobbe med
+      \begin{itemize}
+        \item $v_0^2 = v_{0x}^2 + v_{0y}^2$
+        \item $v_{0x} = v_0 cos\alpha$
+        \item $v_{0y} = v_0 sin\alpha$
+      \end{itemize}
+      den tredje bevegelseslikninga er eit godt utgongspunkt sidan vi kjenner
+      alle størrelsane der untatt $\alpha$ og $t$. Eg setter inn for $v_{0x}$
+      \begin{equation}
+        s_x = v_{0x}t \rightarrow t = \frac{s_x}{v_{0x}}
+        \rightarrow t = \frac{s_x}{v_0 cos \alpha}
+      \end{equation}
+      setter inn for $v_{0y}$
+      \begin{equation}
+        s_y = v_{0y}t + \frac{1}{2}gt^2
+        \rightarrow s_y = v_0sin\alpha t + \frac{1}{2}gt^2
+      \end{equation}
+      setter inn for $t$. Vi har nå ei likning med kun éin ukjent, $\alpha$
+      \begin{equation}
+        s_y = v_{0}sin\alpha \frac{s_x}{v_0 cos\alpha} +
+        \frac{1}{2}g\left( \frac{s_x}{v_0 cos\alpha}\right)^2
+      \end{equation}
+      forenkler algebraisk
+      \begin{equation}
+        s_y = s_x\frac{sin\alpha}{cos\alpha} +
+        \frac{s_x^2}{2v_0^2}g\frac{1}{cos^2\alpha}
+      \end{equation}
+      forenkler vha. trigonometriske identitetar $\frac{sinv}{cosv} = tanv$ og 
+      $\frac{1}{cos^2v} = (1 + tan^2v)$
+      \begin{equation}
+        s_y = s_xtan\alpha +
+        \frac{s_x^2}{2v_0^2}g\left( 1 + tan^2\alpha \right)
+      \end{equation}
+      forenkler algebraisk, substituerer $u = tan\alpha$
+      \begin{equation}
+        \frac{s_x^2}{2v_0^2}gu^2 + s_xu + 
+        \frac{s_x^2}{2v_0^2}g - s_y = 0
+      \end{equation}
+      løyser vha. abc-formelen
+      \begin{equation}
+        u = tan\alpha = 2,427 \vee 0,2996
+      \end{equation}
+      som gjev oss vinklane
+      \begin{equation}
+        \alpha = arctan(u) = \ang{67,6} \vee \ang{16,6}
+      \end{equation}
+
+
+
+\end{document}
