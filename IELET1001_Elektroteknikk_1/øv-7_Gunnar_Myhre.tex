@@ -1,0 +1,411 @@
+\documentclass[12pt,a4paper]{article}
+\title{%
+  Øving 7 \\
+  \large IELET1001 - Elektroteknikk \\
+  }
+\author{Gunnar Myhre, BIELEKTRO}
+
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage[siunitx]{circuitikz}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\usepackage{graphicx}
+\graphicspath{ {./images} }
+
+\setlength\parindent{0pt}
+
+\begin{document}
+  \maketitle
+
+  \section*{Oppgåve 1}
+  \subsection*{a)}
+    Eg tolker oppgåveteksten til at nodespenninga $v(t)$ er gitt i noda som
+    binder RLC-elementene saman (merka med $2$ på teikninga).
+    \bigskip
+
+    Når brytaren lukkast ved $t=0$ står vi igjen med ein parallell RLC.
+    Ved $t = 0^-$ vil spenninga over kondensatoren vere $4V$.
+    Sidan spenninga over kondensatoren er kontinuerleg vil
+    \begin{equation}
+      v(0^+) = v(0^-) = 4V
+    \end{equation}
+    Ved $t=0^+$ vil dei energilagrande elementene oppføre seg som kjelder.
+
+    \begin{center}
+      \begin{circuitikz}[american] \draw
+        (0,0) to[I, l=0<\ampere>, i_<=$i_L$] (0,3) -- (2,3)
+              to[R, l=0.5<\ohm>, i=$i_R$, v=$v_R$] (2,0) -- (0,0)
+        (2,3) -- (4,3)
+              to[V, l=4<\volt>, i>=$i_C$] (4,0) -- (2,0)
+        ;
+      \end{circuitikz}
+    \end{center}
+    frå straum-/spenningsforholdet for kondensator kjenner vi at
+    \begin{equation}
+      i_c=C\frac{dv_c}{dt} \rightarrow \frac{dv_c}{dt} = \frac{i_c}{C}
+    \end{equation}
+    KCL i den øverste noda gjev oss
+    \begin{equation}
+      i_L + i_R + i_C = 0 \rightarrow
+      0A +\frac{4V}{0,5\si{\ohm}} + C\frac{dv_c}{dt} = 0
+    \end{equation}
+    som gjev oss
+    \begin{equation}
+      \frac{dv(0^+)}{dt} = -8V/s
+    \end{equation}
+
+  \subsection*{b)}
+    Finner uttrykk for straumane
+    \begin{itemize}
+      \item $i_R = \frac{v(t)}{R}$
+      \item $i_L = i_L(0) + \frac{1}{L}\int_0^t{v(t)dt}$
+      \item $i_C = C\frac{dv_c}{dt}$
+    \end{itemize}
+    setter inn i KCL
+    \begin{equation}
+      \frac{v(t)}{R} + \frac{1}{L}\int_0^t{v(t)dt} + C\frac{dv(t)}{dt} = 0
+    \end{equation}
+    deriverer med hensyn på $t$
+    \begin{equation}
+      C\frac{d^2v(t)}{dt^2} +
+      \frac{1}{R}\frac{dv(t)}{dt} +
+      \frac{1}{L}v(t)
+    \end{equation}
+    får høgaste deriverte aleine
+    \begin{equation}
+      \frac{d^2v(t)}{dt^2} +
+      \frac{1}{RC}\frac{dv(t)}{dt} +
+      \frac{1}{LC}v(t) = 0
+    \end{equation}
+    setter inn for $R=0,5$, $L=0,25$ og $C=1$ og finner karakteristisk likning
+    \begin{equation}
+      v'' + 2v' + 4v = 0 \rightarrow r^2 + 2r + 4 = 0
+    \end{equation}
+    finner røttene til karakteristisk likning
+    \begin{equation}
+      r_{1,2} = -1 \pm \sqrt{3}j
+    \end{equation}
+    Sidan røttene til den karakteristiske likninga er eit komplekskonjugert par vil
+    transienten til spenninga $v(t)$ vere av underdempa karakter. Frå matematikken
+    kjenner vi den generelle løysninga på ei slik differensiallikning som
+    \begin{equation}
+      r_{1,2} = \alpha \pm i\beta \rightarrow
+      y(x) = e^{\alpha x} \left[ A_1 cos(\beta x) + A_2 sin(\beta x) \right]
+    \end{equation}
+    For å finne koeffisientane $A_1$ og $A_2$ finner vi først $v(t)$ og $v'(t)$
+    \begin{itemize}
+      \item $v(t) = A_1 cos(\sqrt{3}t) e^{-t} + A_2 sin(\sqrt{3}t) e^{-t}$
+      \item $v'(t) = -A_1 e^{-t} \left[ cos(\sqrt{3}t)+sin(\sqrt{3}t)\sqrt{3} \right] +
+        A_2 e^{-t} \left[ cos(\sqrt{3}t)\sqrt{3} - sin(\sqrt{3}t) \right]$
+    \end{itemize}
+    setter inn for initialbetingelsane $v(0) = 4V$ og $v'(0) = -8V/s$
+    \begin{itemize}
+      \item $4 = A_1$
+      \item $-8 = -A_1 + \sqrt{3}A_2$
+    \end{itemize}
+    Løyser likningssettet og får $A_1 = 4$, $A_2 = -\frac{4\sqrt{3}}{3} \approx -2,31$
+    \begin{equation}
+      v(t) = 4cos(\sqrt{3}t)e^{-t} - 2,31sin(\sqrt{3}t)e^{-t}
+    \end{equation}
+
+
+
+  \section*{Oppgåve 2}
+    Denne oppgåva er også ein parallell RLC-krets og vi kan derfor bruke delar av
+    utrekninga frå oppgåve 1. Likninga er på forma
+    \begin{equation}
+      \frac{d^2v(t)}{dt^2} +
+      \frac{1}{RC}\frac{dv(t)}{dt} +
+      \frac{1}{LC}v(t) = 0
+    \end{equation}
+    setter inn for $R=5$, $L=2$ og $C=\frac{1}{40}$ og finner karakteristisk likning
+    \begin{equation}
+      v'' + 8v' + 20v = 0 \rightarrow
+      r^2 + 8r + 20 = 0
+    \end{equation}
+    vi finner røttene til den karakteristiske likninga vha. andregradsformelen
+    og finner den generelle differensiallikninga for $v(t)$
+    \begin{equation}
+      r_{1,2} = -4 \pm 2j
+      \rightarrow v(t) = A_1 cos(2t)e^{-4t} + A_2 sin(2t)e^{-4t}
+    \end{equation}
+    vi deriverer $v(t)$
+    \begin{equation}
+      v'(t) = -A_1 e^{-4t} \left[ 4cos(2t)+sin(2t)2 \right] +
+        A_2 e^{-4t} \left[ cos(2t)2 - 4sin(2t) \right]
+    \end{equation}
+    koeffisientane $A_1$ og $A_2$ kan vi utlede frå initialbetingelsane. Vi kjenner
+    $v(0) = 10V$ og $\frac{dv(0)}{dt}$ kan vi finne frå straum-/spenningsforholdet
+    til kondensatoren
+    \begin{equation}
+      KCL: i_L + i_R + i_C = 0  \rightarrow 1A + \frac{10V}{5\si{\ohm}} = -i_C
+      \rightarrow i_C = -3A
+    \end{equation}
+    \begin{equation}
+      i_C = C\frac{dv(t)}{dt} \rightarrow
+      \frac{dv(0)}{dt} = \frac{-3A}{1/40F} = -120V/s
+    \end{equation}
+    setter inn for initialbetingelsane i $v(t)$ og $v'(t)$
+    \begin{itemize}
+      \item $A_1 = 10$
+      \item $2A_2 - 4A_1 = -120$
+    \end{itemize}
+    løyser og finner $A_1 = 10$, $A_2 = -40$. Setter inn og finner den partikulære
+    løysninga for $v(t)$
+    \begin{equation}
+      v(t) = 10 cos(2t)e^{-4t} - 40 sin(2t)e^{-4t}
+    \end{equation}
+
+  \newpage
+
+
+  \section*{Oppgåve 3}
+    Dette er kretsen for $t \ge 0$
+    \begin{center}
+      \begin{circuitikz}[american] \draw
+        (0,0) to[V, l=27<\volt>, i>=$i(t)$, invert] (0,4)
+              to[R, l=6<\ohm>] (2,4)
+              to[R, l=1.5<\ohm>] (4,4)
+              to[C, l=0.02<\farad>, v=$v_c$] (4,0) -- (2,0)
+              to[L, l=0.25<\henry>, v=$v_l$] (0,0)
+        ;
+      \end{circuitikz}
+    \end{center}
+    setter opp KVL i maska
+    \begin{equation}
+      v_r + v_c + v_l = 27V
+    \end{equation}
+    finner uttrykk for spenningene
+    \begin{itemize}
+      \item $v_r = 7,5i(t)$
+      \item $v_l = L\frac{di(t)}{dt}$
+      \item $v_c = v_c(0^-) + \frac{1}{C}\int_0^t{i(t)dt}$
+    \end{itemize}
+    setter inn i KVL
+    \begin{equation}
+      7,5i(t) + L\frac{di(t)}{dt} + v_c(0^-) + \frac{1}{C}\int_0^t{i(t)dt} = 27V
+    \end{equation}
+    setter høgaste deriverte aleine, deriverer med hensyn på t
+    \begin{equation}
+      i'' + \frac{R}{L}i' + \frac{1}{LC}i = 0
+    \end{equation}
+    fyller inn for $R = 7,5$, $L = 0,25$ og $C = 0,02$ og finner karakteristisk
+    likning
+    \begin{equation}
+      r^2 + 30r + 200 = 0
+    \end{equation}
+    finner røttene $r = -20$ og $r = -10$. Dette gjev oss den generelle
+    differensiallikninga
+    \begin{equation}
+      i(t) = K_1 e^{-20t} + K_2 e^{-10t}
+    \end{equation}
+    deriverer $i(t)$
+    \begin{equation}
+      i'(t) = -20K_1 e^{-20t} - 10K_2 e^{-10t}
+    \end{equation}
+    vi finner initialbetingelsane for $t=0^+$. På tidspunktet $t=0^-$ er kretsen
+    stasjonær. Kondensatoren er ein åpen krets og spolen er ein kortslutning.
+    Derfor er straumen i heile kretsen gitt ved
+    \begin{equation}
+      i(0^-) = \frac{v}{R} = \frac{33}{6} = 5,5
+    \end{equation}
+    sidan straumen i spolen er kontinuerleg er også $i(0^+) = 5,5$. KVL i kretsen
+    ved $t=0^+$ er gitt ved
+    \begin{equation}
+      -27 + 7,5\cdot5,5 - 6 + v_l = 0
+    \end{equation}
+    ved straum-/spenningsforholdet til spole får vi at
+    \begin{equation}
+      \frac{di(0^+)}{dt} = \frac{v_l(0^+)}{L} = -33
+    \end{equation}
+    setter inn i $i(t)$ og $i'(t)$ for å finne $A_1$ og $A_2$
+    \begin{itemize}
+      \item $i(0^+) = 5,5 = K_1 + K_2$
+      \item $i'(0^+) = -33 = -20K_1 + -10K_2$
+    \end{itemize}
+    løyser likningssettet og finner $K_1 = -2,2$, $K_2 = 7,7$. Dette kan vi sette
+    inn i $i(t)$ og finner den partikulære løysninga
+    \begin{equation}
+      i(t) = -2,2e^{-20t} + 7,7 e^{-10t}
+    \end{equation}
+
+  \newpage
+
+  \section*{Oppgåve 4}
+    Om vi forenkler kretsen til éi maske og finner eit uttrykk for $i(t)$ i denne 
+    eine maska kan vi til slutt finne eit uttrykk for $v_0(t)$ over motstanden vha.
+    ohms lov. Med andre ord er vi ikkje opptatt av anna enn éin motstand, éin spole
+    og éin kondensator i serie med ein energikjelde.
+    \bigskip
+
+    For å skrive kretsen vår om på denne måten bruker eg kjeldetransformasjon av
+    straumkjelda ein rekke gonger, og står til slutt igjen med ein spenningskjelde
+    $v_s = 4V$ og ein motstand $r = 4 \si{\ohm}$ i serie. Denne motstanden slår eg
+    saman med motstanden $r_0$ på høgre sida. For $t \ge 0$ ser kretsen slik ut
+    \begin{center}
+      \begin{circuitikz}[american] \draw
+        (0,0) to[V, l=4<\volt>, invert] (0,3)
+              to[L, l=0.05<\henry>] (3,3)
+              to[C, l=0.008<\farad>] (6,3)
+              to[R, l=5<\ohm>] (6,0) -- (0,0)
+        ;
+      \end{circuitikz}
+    \end{center}
+    KVL i maska gjev oss
+    \begin{equation}
+      v_R + v_L + v_C = 4V
+    \end{equation}
+    desse spenningene kan vi beskrive ved straum-/spenningsforhold
+    \begin{itemize}
+      \item $v_R = Ri(t)$
+      \item $v_L = L\frac{di(t)}{dt}$
+      \item $v_C = v_C(0) + \frac{1}{C}\int_0^t{i(t)dt}$
+    \end{itemize}
+    vi veit at spenninga over kondensatoren i $t = 0^-$ er $0V$. Setter
+    opp generell differensiallikning
+    \begin{equation}
+      L\frac{di(t)}{dt} + Ri(t) + \frac{1}{C}\int_0^t{i(t)dt} = 4
+    \end{equation}
+    setter høgaste ordens deriverte aleine og deriverer dt
+    \begin{equation}
+      i'' + \frac{R}{L}i' + \frac{1}{LC}i = 0
+    \end{equation}
+    om vi løyser den karakteristiske likninga ser vi at vi får ei dobbelrot
+    \begin{equation}
+      r^2 + 100r + 2500 = 0 \rightarrow r = -50
+    \end{equation}
+    det er dermed snakk om ein transient av kritisk dempa karakter. Den 
+    generelle differensiallikninga for dette kjenner vi som
+    \begin{equation}
+      i(t) = B_1 e^{-50t} + B_2 t e^{-50t}
+    \end{equation}
+    deriverer $i(t)$
+    \begin{equation}
+      i'(t) = -50B_1 e^{-50t} + B_2te^{-50t} - 50B_2e^{-50t}
+    \end{equation}
+    for å finne koeffisientane må vi finne initialbetingelsane $i(0^+)$ og
+    $i'(0^+)$. Pga. at straum i spolar er kontinuerleg vil
+    \begin{equation}
+      i(0^+) = i(0^-) = 0
+    \end{equation}
+    for å finne $i'(0^+)$ må vi finne $v_l(0^+)$ i den originale teikninga. Sidan
+    spenninga i kondensatoren er kontinuerleg vil den fortsatt vere $0V$ i $t=0^+$.
+    \begin{center}
+      \begin{circuitikz}[american] \draw
+        (0,0) to[R, l=4<\ohm>, *-*] (3,0)
+              to[L, l=0.025<\henry>, v=$v_l$] (6,0)
+              to[C, l=0.008<\farad>, *-*] (9,0)
+
+        (0,0) node[label={[font=\footnotesize]100:$4V$}] {}
+        (3,0) node[label={[font=\footnotesize]100:$4V$}] {}
+        (6,0) node[label={[font=\footnotesize]100:$0V$}] {}
+        (10,0) node[label={[font=\footnotesize]100:$0V$}] {}
+        ;
+      \end{circuitikz}
+    \end{center}
+    straumen $i(0^+)$ er som kjent $0$ så det er ingen spenningsfall over motstanden,
+    dermed er $v_l = 4V$. Nå kan vi finne $i'(0^+)$
+    \begin{equation}
+      \frac{di(0^+)}{dt} = \frac{v_l}{L} = \frac{4}{1/20} = 80
+    \end{equation}
+    nå som vi kjenner to initialbetingelsar kan vi sette inn i $i(t)$ og $i'(t)$
+    \begin{itemize}
+      \item $B_1 = 0$
+      \item $-50B_1 + B_2 = 80$
+    \end{itemize}
+    den partikulære løysninga av $i(t)$ er derfor
+    \begin{equation}
+      i(t) = 80 t e^{-50t}
+    \end{equation}
+    vi finner spenninga $v_0(t)$ vha. ohms lov
+    \begin{equation}
+      v(t) = R\cdot i(t) \rightarrow v_0(t) = 80 t e^{-50t}
+    \end{equation}
+
+    
+
+
+  \section*{Oppgåve 5}
+    I oppgåve 1 utleda eg formelen for ein parallell RLC-krets
+    \begin{equation}
+      \frac{d^2v(t)}{dt^2} +
+      \frac{1}{RC}\frac{dv(t)}{dt} +
+      \frac{1}{LC}v(t) = 0
+    \end{equation}
+    Eg velger meg $R = 220\si{\kilo\ohm}$
+    \begin{itemize}
+      \item $4\cdot 10^7 = \frac{1}{220 \cdot 10^3 C}
+        \Rightarrow C = 88 \cdot 10^{-9}$
+      \item $3\cdot 10^{14} = \frac{1}{88\cdot10^{-9}L}
+        \Rightarrow L = 264 \cdot 10^{-3}$
+    \end{itemize}
+    denne kretsen oppfyller kriteriene
+    \begin{center}
+      \begin{circuitikz}[american] \draw
+        (0,0) to[R, l=220<\kilo\ohm>] (0,2) -- (3,2)
+              to[L, l=264<\milli\henry>] (3,0) -- (0,0)
+        (3,2) -- (6,2)
+              to[C, l=88<\nano\farad>] (6,0) -- (3,0)
+        ;
+      \end{circuitikz}
+    \end{center}
+
+
+  \section*{Oppgåve 6}
+    \subsection*{a)}
+    Sidan L og C står i parallell stemmer dette forholdet:
+    \begin{equation}
+      v_c = v_L = L\frac{di_L}{dt}
+    \end{equation}
+    KVL i kretsen for $t > 0$ gjev oss
+    \begin{equation}
+      V_s = v_c + R(i_L + i_c)
+    \end{equation}
+    $i_l$ og $i_c$ er gitt ved straum-/spenningsforhold for spole og kondensator
+    \begin{itemize}
+      \item $i_c = C\frac{dv_c}{dt}$
+      \item $i_L = \frac{1}{C}\int_0^t v_c(t) dt$
+    \end{itemize}
+    i eitt uttrykk vert dette
+    \begin{equation}
+      RC\frac{dv_c}{dt} + v_c + \frac{R}{L} \int_0^t v_c(t) dt = V_s
+    \end{equation}
+    setter høgaste ordens deriverte for seg sjølv og deriverer dt
+    \begin{equation}
+      v_c'' + \frac{1}{RC}v_c' + \frac{1}{LC}v_c = 0
+    \end{equation}
+
+    \subsection*{b)}
+    Vi kan ta utgongspunkt i denne formelen frå oppgåve \textbf{a}
+    \begin{equation}
+      RC\frac{dv_c}{dt} + v_c + \frac{R}{L} \int_0^t v_c(t) dt = V_s
+    \end{equation}
+    målet er å lage ein formel som er avhengig av $i(t)$, så vi substituerer
+    $v_c = L\frac{di_L}{dt}$
+    \begin{equation}
+      LRC\frac{d^2i_L}{dt^2} + L\frac{di_L}{dt} + \frac{R}{L}\int_0^t L\frac{di_L}{dt}dt = V_s
+    \end{equation}
+    integralet av ein konstant forenklast til
+    \begin{equation}
+      LRC\frac{d^2i_L}{dt^2} + L\frac{di_L}{dt} + \frac{R}{L}Li_L = V_s
+    \end{equation}
+    setter høgaste ordens deriverte aleine og forenkler leibnizformalismen
+    \begin{equation}
+      i_L'' + \frac{1}{RC}i_L' + \frac{1}{LC}i_L = \frac{V_s}{RLC}
+    \end{equation}
+
+    eg merker meg at koeffisientane til differensiallikninga er like,
+    uavhengig av om vi går ut ifrå $i_L$ eller $v_c$
+    \begin{itemize}
+      \item $i_L'' + \frac{1}{RC}i_L' + \frac{1}{LC}i_L = \frac{V_s}{RLC}$
+      \item $v_c'' + \frac{1}{RC}v_c' + \frac{1}{LC}v_c = 0$
+    \end{itemize}
+
+
+
+
+
+
+\end{document}
