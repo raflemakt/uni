@@ -1,0 +1,231 @@
+\documentclass[12pt,a4paper]{article}
+\title{%
+  Øving 3 \\
+  \large IFYKJT1001 - Fysikk/Kjemi \\
+  }
+\author{Gunnar Myhre, BIELEKTRO}
+
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage{amsmath}
+\usepackage{siunitx}
+
+\usepackage{graphicx}
+\graphicspath{ {./images} }
+
+\setlength\parindent{0pt}
+
+\begin{document}
+  \maketitle
+
+  \section*{Oppgåve 1}
+    \subsection*{a)}
+    Krafta i positiv retning  er gitt ved Hooks Lov:
+    \begin{equation}
+      F = kx \rightarrow F(x) = (200N/m)x
+    \end{equation}
+    Derom vi antar at fjøra ikkje yter noko kraft på isblokka etter $0,025m$ kan vi skrive
+    summen av det kinetiske arbeidet som
+    \begin{equation}
+      W = \int_{0m}^{0,025m}(200N/m)xdx \rightarrow \frac{200N/m}{3200N/m} = 0,063 J
+    \end{equation}
+
+    \subsection*{b)}
+    Setter opp energiloven for systemet
+    \begin{equation}
+      \frac{1}{2}mv_1^2 +
+      \frac{1}{2}kx_1^2 =
+      \frac{1}{2}mv_0^2 + 
+      \frac{1}{2}kx_0^2
+    \end{equation}
+    setter $x_0 = -0,025$. Fjerner ledd som er null, $v_0 = 0$ og $x_1 = 0$
+    \begin{equation}
+      \frac{1}{2}v_1^2m = kx_0^2 \rightarrow v_1 = \sqrt{\frac{200}{6400}} = \frac{\sqrt{2}}{8}
+    \end{equation}
+    farta når isblokka slipper fjøra er $0,18 m/s$
+
+  \section*{Oppgåve 2}
+    Arbeid-/energisetninga seier
+    \begin{equation}
+      W = \Delta E_K \rightarrow
+      W =
+      \frac{1}{2}mv_1^2 - 
+      \frac{1}{2}mv_0^2
+    \end{equation}
+    vi veit også at 
+    \begin{equation}
+     W = \int_0^{8,6m}F(x)dx \rightarrow
+      \left[ 6,0\frac{1}{3}x^3 - 2\frac{1}{2}x^2 + 6x \right] _0^{8,6} = 1249,75J
+    \end{equation}
+    desse to likningene kan vi slå saman og finne $v_1$
+    \begin{equation}
+      \frac{1}{2}mv_1^2 - \frac{1}{2}mv_0^2 = 1249,75J
+    \end{equation}
+    forenkler algebraisk og setter inn kjente verdiar
+    \begin{equation}
+      v = \sqrt{\frac{2\cdot 1249,75}{5,5}} \rightarrow  v = 21 m/s
+    \end{equation}
+
+
+  \section*{Oppgåve 3}
+    Setter opp energiloven for systemet, der indeks $1$ er for likevektspunktet til fjøra
+    og $0$ er for posisjonen når fjøra er samanklemt
+    \begin{equation}
+      \frac{1}{2}mv_1^2 + 
+      \frac{1}{2}ky_1^2 -
+      mgy_1 =
+      \frac{1}{2}mv_0^2 +
+      \frac{1}{2}ky_0^2 -
+      mgy_0
+    \end{equation}
+    fjerner ledda som inneholder $v_0 = 0$ og $y_1 = 0$
+    \begin{equation}
+      \frac{1}{2}mv_1^2 =
+      \frac{1}{2}ky_0^2 -
+      mgy_0
+    \end{equation}
+    vi kjenner alle mengdene untatt $v_1$, som er farta når mursteinen forlater
+    likevektspunktet til fjøra. Denne kan vi finne vha. den tidlause bevegelseslikninga
+    for konstant akselerasjon
+    \begin{equation}
+      v_{topp}^2 - v_1^2 = 2as \rightarrow v_1 = \sqrt{2mg}
+    \end{equation}
+    vi står igjen med polynomet
+    \begin{equation}
+      \frac{1}{2}ky_0^2 - mgy_0 - m^2g = 0
+    \end{equation}
+    løyser og får $y_0 = 0,57 \vee y_0 = -0,49$. Det negative svaret er ugyldig, og
+    derfor er $y_0 = 0,57m$.
+
+
+  \section*{Oppgåve 4}
+    \subsection*{a)}
+    Eg dekomponerer $\vec{P}$ og lister resten av informasjonen i oppgåveteksten
+    \begin{itemize}
+      \item $P_x = Pcos(\ang{30})$
+      \item $P_y = Psin(\ang{30})$
+      \item $m=20,0kg$
+      \item $s=8,0m$
+      \item $v_0=0,459m/s$
+      \item $v_1=1,92m/s$
+    \end{itemize}
+    finner akselerasjonen vha. tidlaus bevegelseslikning for konstant akselerasjon
+    \begin{equation}
+      v^2 - v_0^2 = 2as \rightarrow a = \frac{v_1^2 - v_0^2}{2s} = 0,21723 m/s^2
+    \end{equation}
+    finner friksjonskrafta vha. Newtons andre lov langs x-aksa
+    \begin{equation}
+      \Sigma F = ma \rightarrow Pcos(\ang{30}) - f = ma
+      \rightarrow f = Pcos(\ang{30}) - ma = 125,559N
+    \end{equation}
+    arbeidet utført er gitt ved
+    \begin{equation}
+      W=Fs \rightarrow W=125,559N \cdot (-8,0m) = -1004J
+    \end{equation}
+
+    \subsection*{b)}
+    Normalkrafta er er i dette tilfellet motkraft til gravitasjonskrafta $mg$ og
+    den eksterne krafta i y-retning, $P_y$
+    \begin{equation}
+      N = mg + Psin(\ang{30}) = 271,2N
+    \end{equation}
+    vi finner friksjonskoeffisienten ved å sjå på friksjonskrafta under kinetisk friksjon
+    som er gitt ved
+    \begin{equation}
+      f=\mu N \rightarrow \mu = \frac{f}{N} = 0,46
+    \end{equation}
+
+    \subsection*{c)}
+    Effekten utøvd av friksjonskrafta er gitt som
+    \begin{equation}
+      P=Fv \rightarrow P = 125,6N \cdot \frac{1,92m/s + 0,459m/s}{2} = 149,4 W
+    \end{equation}
+
+
+  \section*{Oppgåve 5}
+    Vi kan bruke formel for arbeid frå gravitasjonen
+    \begin{equation}
+      W = -mg(y_B - y_A) \rightarrow W = 170mg
+    \end{equation}
+    med $100\%$ effektivitet vil massen som trengs vere
+    \begin{equation}
+      m = \frac{W}{170g} = 1,199 \cdot 10^3 m^3/s
+    \end{equation}
+    ved $92\%$ effektivitet vil massen som trengs vere
+    \begin{equation}
+      \frac{1,199 \cdot 10^3 m^3/s}{0,92} = 1,304 \cdot 10^3m^3/s
+    \end{equation}
+
+
+  \section*{Oppgåve 6}
+    Arbeidet tyngdekrafta utfører på kula er
+    \begin{equation}
+      W = -mgy_1 + mgy_0
+    \end{equation}
+    der det andre leddet faller bort sidan $y_0 = 0$. Det mekaniske arbeidet på kanonkula
+    er gitt ved
+    \begin{equation}
+      W = \frac{1}{2}v_1^2 - \frac{1}{2}v_0^2
+    \end{equation}
+    Frå dette får vi eit uttrykk for $y_1$, som er toppen av kulebanen
+    \begin{equation}
+      y_1 = \frac{v_0^2}{2g} - \frac{v_1^2}{2g}
+    \end{equation}
+    Vi er kun ute etter bevegelsen i y-retning sidan det kun er tyngdekrafta som verker
+    på kanonkula. Derfor kan vi substituere $v_{0_y} = vsin(\ang{60})$ og $v_{1_y} = 0$
+    \begin{equation}
+      y_1 = \frac{(15sin(\ang{60})m/s)^2}{2g} = 8,6m
+    \end{equation}
+
+
+  \section*{Oppgåve 7}
+    Vi kan teste dette numerisk vha. formelen frå førrige oppgåve
+    \begin{itemize}
+      \item $y_A = \frac{(15sin(\ang{90})m/s)^2}{2g} = 11,5m$
+      \item $y_B = \frac{(15sin(\ang{60})m/s)^2}{2g} = 8,6m$
+      \item $y_C = \frac{(15sin(\ang{30})m/s)^2}{2g} = 2,9m$
+      \item $y_D = \frac{(15sin(\ang{15})m/s)^2}{2g} = 0,77m$
+    \end{itemize}
+    og sette inn i bevegelseslikninga $t=\frac{2s}{v+v_0}$
+    \begin{itemize}
+      \item $t_A = \frac{2\cdot s}{v+v_0} = \frac{23,0m}{225m/s} = 0,10s$
+      \item $t_B = \frac{2\cdot s}{v+v_0} = \frac{17,2m}{169/s} = 0,10s$
+      \item $t_C = \frac{2\cdot s}{v+v_0} = \frac{5,80m}{56,3m/s} = 0,10s$
+      \item $t_D = \frac{2\cdot s}{v+v_0} = \frac{1,54m}{15,1/s} = 0,10s$
+    \end{itemize}
+    Kulene treffer bakken samtidig
+
+
+  \section*{Oppgåve 8}
+    \subsection*{a)}
+    Energiloven for denne fjøra gjev oss
+    \begin{equation}
+      \frac{1}{2}mv_1^2 +
+      \frac{1}{2}kx_1^2 =
+      \frac{1}{2}mv_0^2 +
+      \frac{1}{2}kx_0^2 
+    \end{equation}
+    setter inn for kjente mengder og får
+    \begin{equation}
+      v_1 = \sqrt{\frac{kx_1^2}{m}} = 3,11
+    \end{equation}
+
+    \subsection*{b)}
+    Krafta langs skråplanet finner vi ved å dekomponere gravitasjonskrafta
+    \begin{equation}
+      F = -mgsin(\ang{37})
+    \end{equation}
+    vi finner akselerasjonen
+    \begin{equation}
+      F=ma \rightarrow a = \frac{-mgsin(\ang{37})}{2,00kg} = -5,903 m/s^2
+    \end{equation}
+    bruker den tidlause bevegelseslikninga for konstant akselerasjon
+    \begin{equation}
+      s = \frac{v^2 - v_0^2}{2a} \rightarrow s = 0,82m
+    \end{equation}
+    
+    \subsection*{c)}
+    Sidan systemet er modellert med veldig få krefter (bl.a. utan friksjon og luftmotstand)
+    vil all energien forbli i boksen. Den vil omgjere all energien frå potensiell til
+    kinetisk og attende, og fortsette slik for alltid.
+\end{document}
