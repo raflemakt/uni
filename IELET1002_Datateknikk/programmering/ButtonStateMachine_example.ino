@@ -48,7 +48,6 @@ class ButtonStateMachine {
     const uint8_t bounce_delay = 5;
     
   public:
-    uint8_t state_prev = State::RESET;
     bool state_has_changed;
     
     enum State : uint8_t {
@@ -60,6 +59,7 @@ class ButtonStateMachine {
       RELEASED
     };
     State state = State::RESET;
+    State state_prev;
 
     ButtonStateMachine(uint8_t pin) {
       this->pin = pin;
