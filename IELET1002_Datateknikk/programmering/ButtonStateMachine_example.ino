@@ -22,7 +22,7 @@ const bool WRITE_TO_SERIAL = true;
 class ButtonStateMachine {
   /* Button state machine class with debouncing
    *  on both push and release transients.
-   *  Pull down switch: vcc--[SWITCH]--sample--[R=220]--gnd
+   *  Pull down switch: vcc--[R=220]--sample--[SWITCH]--gnd
    *  
           ┌────────┐ 1==1┌───────────┐
           │0: RESET├────►│1: START   │ val==0
@@ -48,7 +48,6 @@ class ButtonStateMachine {
     const uint8_t bounce_delay = 5;
     
   public:
-    uint8_t state_prev = State::RESET;
     bool state_has_changed;
     
     enum State : uint8_t {
@@ -60,6 +59,7 @@ class ButtonStateMachine {
       RELEASED
     };
     State state = State::RESET;
+    State state_prev;
 
     ButtonStateMachine(uint8_t pin) {
       this->pin = pin;
