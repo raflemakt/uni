@@ -22,7 +22,7 @@ const bool WRITE_TO_SERIAL = true;
 class ButtonStateMachine {
   /* Button state machine class with debouncing
    *  on both push and release transients.
-   *  Pull down switch: vcc--[SWITCH]--sample--[R=220]--gnd
+   *  Pull down switch: vcc--[R=220]--sample--[SWITCH]--gnd
    *  
           ┌────────┐ 1==1┌───────────┐
           │0: RESET├────►│1: START   │ val==0
