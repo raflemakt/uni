@@ -1,0 +1,433 @@
+\documentclass[12pt,a4paper]{article}
+\title{%
+  Øving 8 \\
+  \large IELET1001 - Elektroteknikk \\
+  }
+\author{Gunnar Myhre, BIELEKTRO}
+
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage[siunitx]{circuitikz}
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+\graphicspath{ {./images} }
+
+\setlength\parindent{0pt}
+
+\begin{document}
+  \maketitle
+
+  \section*{Oppgåve 1}
+    Gitt den periodiske funksjonen
+    \begin{equation}
+      v(t) = 25 cos(30t + \ang{10})V
+    \end{equation}
+    er frekvensen gitt som 
+    \begin{equation}
+      f = \frac{\omega}{2\pi} = 15\pi
+    \end{equation}
+    og perioden
+    \begin{equation}
+      T = \frac{1}{f} = \frac{1}{15\pi}
+    \end{equation}
+
+
+  \section*{Oppgåve 2}
+    Fasevinklane mellom dei to spenningene er 
+    \begin{equation}
+      \ang{40} - (-\ang{20}) = \ang{60}
+    \end{equation}
+
+  \section*{Oppgåve 3}
+    Vi veit generelt at om
+    \begin{equation}
+      v(t) = V_m cos(\omega t + \phi) = Re \{V_m e^{j\phi}e^{j\omega t} \}
+    \end{equation}
+    så er fasevektoren til $v(t)$
+    \begin{equation}
+      V=V_m e^{j\phi}
+    \end{equation}
+    \begin{itemize}
+      \item \textbf{a)} $v(t) = 20 cos(2t-\ang{10}) \rightarrow 20e^{\ang{-10}j}$
+      \item \textbf{b)} $i(t) = -4sin(10t+\ang{35}) = 4cos(10t+\ang{125}) \rightarrow
+        4e^{\ang{125}j}$
+      \item \textbf{c)} $v(t) = 60 sin(5t - \ang{25}) = 60cos(5t - \ang{115}) \rightarrow
+        60e^{\ang{-115}j}$
+    \end{itemize}
+
+
+  \section*{Oppgåve 4}
+    \begin{equation}
+      Z = \left( ( (( (2j-j) || (2||2)) + 18) || 2j ) + 2 \right) \si{\ohm}
+    \end{equation}
+    \begin{equation}
+      Z = \left( ( (( j || 1)) + 18) || 2j ) + 2 \right) \si{\ohm}
+    \end{equation}
+    \begin{equation}
+      Z = \left( ( \frac{j}{1+j} + 18) || 2j ) + 2 \right) \si{\ohm}
+    \end{equation}
+    \begin{equation}
+      Z = \left( \frac{(\frac{j}{1+j} + 18)2j}{2j + \frac{j}{1+j} + 18}+ 2 \right) \si{\ohm}
+    \end{equation}
+    gonger med konjugat for å fjerne brøk
+    \begin{equation}
+      Z = \left( \frac{(\frac{1}{2}j + \frac{1}{2} + 18)2j}
+      {2j + \frac{1}{2}j + \frac{1}{2} + 18}+ 2 \right) \si{\ohm}
+    \end{equation}
+    \begin{equation}
+      Z = \left( \frac{j^2 + 37j}{\frac{5}{2}j + \frac{37}{2}}+ 2 \right) \si{\ohm}
+    \end{equation}
+    gonger med konjugat for å fjerne brøk
+    \begin{equation}
+      Z = \left( \frac{-1 + 37j}{\frac{5}{2}j + \frac{37}{2}}
+      \frac{(\frac{5}{2}j - \frac{37}{2})}{(\frac{5}{2}j - \frac{37}{2})}
+      + 2 \right) \si{\ohm}
+    \end{equation}
+    \begin{equation}
+      Z = \left( \frac{74 + 687j}{348,5} + 2 \right) \si{\ohm}
+    \end{equation}
+    \begin{equation}
+      Z = \left( 2,21 + 1,97j \right) \si{\ohm}
+    \end{equation}
+
+
+  \newpage
+
+
+  \section*{Oppgåve 5}
+    \begin{center}
+      \begin{circuitikz}[american] \draw
+        (0,0) to[V, l=$\textbf{V}$, i_>=$I$, invert] (0,3)
+              to[R, l=5<\ohm>] (3,3)
+              to[L, l=$Z_L$] (3,0)
+              to[C, l=$Z_C$] (0,0)
+        ;
+      \end{circuitikz}
+    \end{center}
+    Vi kjenner til desse verdiane
+    \begin{itemize}
+      \item $\textbf{V} = 13e^{j\ang{85}} = 13cos\ang{85} + j13sin\ang{85} = 1,133 + j12,95$
+      \item $\omega = 600$
+      \item $Z_R = 5$
+      \item $Z_L = j\omega L = j600L$
+      \item $Z_C = \frac{1}{j\omega C} = -20,08j$
+    \end{itemize}
+    At fasevinkelen mellom $V$ og $I$ er lik er eit spesialtilfelle som \textit{kun} inntrer 
+    om den totale reaktansen i kretsen er null, med andre ord når $Z_L + Z_C = 0$. 
+    \begin{equation}
+      \frac{1}{j\omega C} + j\omega L = 0 \rightarrow
+      \frac{1}{\omega C} = -j^2\omega L \rightarrow
+      L = \frac{1}{C\omega^2}
+    \end{equation}
+    Sidan $C = 83\si{\micro\farad}$ er gitt må vi velge $L = 33,47 \si{\milli\henry}$.
+
+    \newpage
+
+  \section*{Oppgåve 6}
+    \begin{center}
+      \begin{circuitikz}[american] \draw 
+        (0,0) to[V, l=$V$, invert] (0,3)
+              to[R, l=$R_1$, *-*] (4,3)
+              to[R, l=$R_2$, *-*] (8,3)
+              to[C, l=$C$, v=$V_C$] (8,0)
+        (8,0) -- (4,0) -- (0,0)
+        (4,0) to[L, l=$L$, v<=$V_L$] (4,3)
+              
+        ;
+        \draw[->,shift={(2,1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_1$};
+        \draw[->,shift={(6,1.5)}] (120:.7cm) arc (120:-90:.7cm) node at(0,0){$I_2$};
+      \end{circuitikz}
+    \end{center}
+
+    Løyser vha. maskestraum. KVL i maske 1 og 2 gjev oss matrisa
+    \begin{equation}
+      A\vec{x} = \vec{b} \rightarrow
+      \left[ \begin{array}{cc}
+        R_1 + j\omega L, & -j\omega L \\
+        - j\omega L, & R_2 + \frac{1}{j\omega C} + j\omega L \\
+      \end{array} \right]
+      \cdot
+      \left[ \begin{array}{c}
+        I_1 \\
+        I_2 \\
+      \end{array} \right]
+      =
+      \left[ \begin{array}{c}
+        24\angle{\ang{60}} \\
+        0 \\
+      \end{array} \right]
+    \end{equation}
+    fører opp kjente verdiar for fasevektorane
+    \begin{itemize}
+      \item $V = 24\angle \ang{60} = 24cos(\ang{60}) + j24sin(\ang{60}) = 12 + j12\sqrt{3}$
+      \item $Z_{R_1} = 4$
+      \item $Z_{R_2} = 8$
+      \item $Z_L = j\omega L = j6$
+      \item $Z_C = \frac{1}{j\omega C} = -j4$
+    \end{itemize}
+    fører inn i matrisa
+    \begin{equation}
+      A\vec{x} = \vec{b} \rightarrow
+      \left[ \begin{array}{cc}
+        4 + j6, & -j6 \\
+        -j6, & 8 + j2 \\
+      \end{array} \right]
+      \cdot
+      \left[ \begin{array}{c}
+        I_1 \\
+        I_2 \\
+      \end{array} \right]
+      =
+      \left[ \begin{array}{c}
+        12 + j12\sqrt{3} \\
+        0 \\
+      \end{array} \right]
+    \end{equation}
+    Sidan dette er ei $2\times2$-matrise kan vi løyse den vha. Cramers regel. Då må vi først
+    finne determinanten til A
+    \begin{equation}
+      det(A) = (4+j6)(8+j2)-(-j6)(-j6) = 56+56j
+    \end{equation}
+    finner $I_1$ vha. Cramers regel
+    \begin{equation}
+      I_1 = \frac{
+        \left| \begin{array}{cc}
+          12+j12\sqrt{3}, & -j6 \\
+          0,              & 8+j2 \\
+        \end{array} \right|}
+      {det(A)} =
+      \frac{(12+j12\sqrt{3})(8+j2)}{56+56j} \approx 2,18 + j1,21
+    \end{equation}
+    finner $I_2$ vha. Cramers regel
+    \begin{equation}
+      I_2 = \frac{
+        \left| \begin{array}{cc}
+          4+j6, & 12+j12\sqrt{3} \\
+          -j6,  & 0 \\
+        \end{array} \right|}
+      {det(A)} =
+      \frac{0-(-j6)(12+j12\sqrt{3})}{56+56j} \approx -0,47 + j1,75
+    \end{equation}
+    for å vinne spenningene $V_L$ og $V_C$ bruker vi den utvida Ohms' lov $V=ZI$
+    \begin{equation}
+      V_C = -j4 \cdot I_2 = -j4(-0,47 + j1,75) = 7 + j1,88
+    \end{equation}
+    \begin{equation}
+      V_C = j6 \cdot (I_1 - I_2) = j6(2,18+j1,21 - (-0,47 +j1,75)) = 3,24 + j15,9
+    \end{equation}
+    tilbakeført til tidsdomenet vert dette
+    \begin{itemize}
+      \item $I_1 = 2,18+j1,21 \longrightarrow i_1(t) = 2,49cos(\omega t + \ang{61}) [A]$
+      \item $I_2 = -0,47+j1,75 \longrightarrow i_2(t) = 1,81cos(\omega t + \ang{165}) [A]$
+      \item $V_L = 3,24+j15,9 \longrightarrow v_L(t) = 16,22cos(\omega t + \ang{12}) [V]$
+      \item $V_C = 7+j1,88 \longrightarrow v_C(t) = 7,25cos(\omega t + \ang{75}) [V]$
+    \end{itemize}
+
+
+  \section*{Oppgåve 7}
+    Velger meg jord i den nederste noda. Vi får kun éi vesentlig node (supernode) som
+    består av $V_O$ og noda heilt til venstre i underkant av $6V$-spenningskjelda
+    \begin{equation}
+      \frac{V_O - 6}{2} + \frac{(V_O - 6) - 6V_O}{2} + \frac{V_O - 6V_O}{j} + \frac{V_O}{2} = 0
+    \end{equation}
+    forenkler algebraisk
+    \begin{equation}
+      V_O = \frac{-36 - j120}{109}[V]
+    \end{equation}
+
+  \newpage
+
+  \section*{Oppgåve 8}
+    Løyser vha. maskestraum
+    \begin{itemize}
+      \item $KVL_{I_x}: 2I_x -jI_x +4jI_x -I_1 = 0$
+      \item $KVL_{I_1}: 2I_1 -I_x -4I_x = 6$
+    \end{itemize}
+    Løyser som matrise $A\vec{x} = \vec{b}$
+    \begin{equation}
+      A\vec{x} = \vec{b} \rightarrow
+      \left[ \begin{array}{cc}
+        -1, & 2+3j \\
+        2,  & -5 \\
+      \end{array} \right]
+      \cdot
+      \left[ \begin{array}{c}
+        I_x \\
+        I_1 \\
+      \end{array} \right]
+      =
+      \left[ \begin{array}{c}
+        0 \\
+        6 \\
+      \end{array} \right]
+    \end{equation}
+    finner determinanten til $A$
+    \begin{equation}
+      det(A) = 5-(4+6j) = 1 - 6j
+    \end{equation}
+    finner $I_1$ vha. Cramers regel
+    \begin{equation}
+      I_1 = \frac{
+        \left| \begin{array}{cc}
+          0, & 2+3j \\
+          6, & -5 \\
+        \end{array} \right|}
+      {det(A)} =
+      \frac{-12-18j}{1-6j}\frac{(1+6j)}{(1+6j)} =
+      \frac{96-90j}{37}
+    \end{equation}
+    finner $I_x$ vha. Cramers regel
+    \begin{equation}
+      I_x = \frac{
+        \left| \begin{array}{cc}
+          -1, & 0 \\
+          2,  & 6 \\
+        \end{array} \right|}
+      {det(A)} =
+      \frac{-6}{1-6j}\frac{(1+6j)}{(1+6j)} =
+      \frac{-6-36j}{37}
+    \end{equation}
+    finner $V_0$ vha. Ohms lov
+    \begin{equation}
+      V=ZI\rightarrow V_0=I_1-4I_x = \frac{96-90j-4(-6-36j)}{37} = \frac{120+54j}{37}
+    \end{equation}
+
+
+  \newpage
+
+
+  \section*{Oppgåve 9}
+    Vi har tidlegare lært at superposisjon kun fungerer på kretsar med lineære kretselement.
+    Sidan vi igjen får lineære likninger når vi omgjer frå tidsdomenet til det komplekse
+    domenet antar eg at dette er grunnen for at superposisjon igjen fungerer som 
+    kretsanalysemetode.
+
+    \bigskip
+
+    Finner bidrag frå spenningskjelda vha spenningsdeling
+    \begin{equation}
+      V_{0_B} = \frac{Z_1}{R_1 + R_2 + Z_1}V_s = \frac{-j}{25-j}12 = \frac{12-300j}{626}
+    \end{equation}
+    Finner bidrag frå straumkjelda vha. straumdeling
+    \begin{equation}
+      V_{0_A} = ZI = Z_1\left( \frac{R_1}{R_1+R_2+Z_1}i_s \right) =
+      -j\left(\frac{24}{25-j}4\right) = \frac{-96+2400j}{626}
+    \end{equation}
+    finner $V_0$
+    \begin{equation}
+      V_0 = V_{0_A} + V_{0_B} = \frac{12-300j}{626} + \frac{-96+2400j}{626} =
+      -\frac{42}{313}+\frac{1050}{313}j
+    \end{equation}
+
+  \section*{Oppgåve 10}
+    Skriver alle fasevektorane over på kartesisk form. Gjer om spenningskjelda på venstre
+    side til straumkjelde
+    \begin{equation}
+      I=\frac{V}{Z} \rightarrow I = 12
+    \end{equation}
+    Gjer om straumkjelda på høgre side til spenningskjelde
+    \begin{equation}
+      V=ZI \rightarrow V = (-j)4
+    \end{equation}
+    kretsen ser nå slik ut
+    \begin{center}
+      \begin{circuitikz}[american] \draw 
+        (0, 0) to[I, l=12, invert] (0,3) -- (6,3)
+               to[R, l=$1$] (9,3)
+               to[C, l=$-j$] (12,3)
+               to[V, l=$-4j$] (12,0) -- (0,0)
+        (2,0)  to[R, l=$1$] (2,3)
+        (4,0)  to[I, l=$2$] (4,3)
+        (6,3)  to[R, l=$1$, i=$I_0$] (6,0)
+
+               
+        ;
+      \end{circuitikz}
+    \end{center}
+    gjer spenningskjelda på høgre side tilbake til straumkjelde
+    \begin{equation}
+      I = \frac{V}{Z} \rightarrow I = \frac{-4j}{1-j} = 2-2j
+    \end{equation}
+    nå har vi tri straumkjelder i parallell som vi kan legge saman
+    \begin{center}
+      \begin{circuitikz}[american] \draw 
+        (0, 0) to[I, l=12, invert] (0,3) -- (8,3)
+               to[R, l=$1$] (8,1.5)
+               to[C, l=$-j$] (8,0)
+        (8,3) -- (10,3)
+               to[I, l=$2-2j$, invert] (10,0) -- (0,0)
+        (2,0)  to[R, l=$1$] (2,3)
+        (4,0)  to[I, l=$2$] (4,3)
+        (6,3)  to[R, l=$1$, i=$I_0$] (6,0)
+        ;
+      \end{circuitikz}
+    \end{center}
+    legger saman straumkjeldene
+    \begin{equation}
+      I = -12 + 2 + 2-2j = -8 -2j
+    \end{equation}
+    legger saman impedansane i dei to greinene vi ikkje bryr oss om
+    \begin{equation}
+      Z = 1||(1-j) = \frac{(1-j)}{1+1-j} = \frac{3-j}{5}
+    \end{equation}
+    kretsen ser nå slik ut
+    \begin{center}
+      \begin{circuitikz}[american] \draw 
+        (0, 0) to[I, l=$-8-2j$] (0,3) -- (6,3) 
+               to[R, l=$1$, i=$I_0$] (6,0) -- (0,0)
+        (3, 0) to[generic, l=$3/5 -j/5$] (3,3)
+        ;
+      \end{circuitikz}
+    \end{center}
+    finner $I_0$ vha. straumdeling
+    \begin{equation}
+      I_0 = \frac{Z_2}{Z_1 + Z_2}I_s \rightarrow I_0 =
+      \frac{\frac{3}{5} - \frac{1}{5}j}{1 + \frac{3}{5} - \frac{1}{5}j} (-8-2j) = -\frac{2}{13}(21+i)
+      = -3,23 - 0,15 i
+    \end{equation}
+
+  \newpage
+
+  \section*{Oppgåve 11}
+    Nuller ut kjeldene og fjerner lasten for å finne $Z_{th}$
+    \begin{center}
+      \begin{circuitikz}[american] \draw 
+        (0,0) -- (0,3)
+              to[R, l=$1$] (4,3) -- (4,2)
+        (4,0) -- (0,0)
+        (2,0) to[C, l=$-j$] (2,2)
+              to[R, l=$1$] (0,2)
+        (2,2) -- (4,2)
+
+        (4,2) to[short, -o] (5,2)
+        (4,0) to[short, -o] (5,0)
+        (5,2) to[open, v=$V_0$] (5,0)
+        ;
+      \end{circuitikz}
+    \end{center}
+    \begin{equation}
+      Z_{th} = (-j||1)||1) = \frac{2}{5}-\frac{1}{5}j
+    \end{equation}
+    finner $V_{th}$ vha. nodespenning i supernode
+    \begin{equation}
+      \frac{V_0-4\angle \ang{0}}{1} +
+      \frac{V_0-6\angle \ang{0} -4\angle \ang{0}}{1} +
+      \frac{V_0-6\angle \ang{0}}{-j} - 2\angle \ang{0} = 0
+      \rightarrow V_0 = \frac{16+j}{2+j} = \frac{38}{5} - \frac{4}{5}j
+    \end{equation}
+    \begin{center}
+      \begin{circuitikz}[american] \draw 
+        (0,0) to[V, l=$V_{th}$] (0,3)
+              to[generic, l=$Z_{th}$, -*] (3,3)
+              to[R, l=$R_{last}$, v=$V_0$, -*] (3,0) -- (0,0)
+        ;
+      \end{circuitikz}
+    \end{center}
+    finner $V_0$ vha. spenningsdeling
+    \begin{equation}
+      V_0 = \frac{1}{1 + 2/5 - j1/5}\left(\frac{38}{5}-\frac{4}{5}j\right) = \frac{38-4j}{7-j}
+      = \frac{27+j}{5}
+    \end{equation}
+
+\end{document}
