@@ -1,0 +1,362 @@
+\documentclass[12pt,a4paper]{article}
+\title{%
+  Øving 11 \\
+  \large IELET1001 - Elektroteknikk \\
+  }
+\author{Gunnar Myhre, BIELEKTRO}
+
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage[siunitx]{circuitikz}
+\usepackage{amsmath}
+\usepackage{icomma}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usepgfplotslibrary{fillbetween}
+
+\usepackage{graphicx}
+\graphicspath{ {./images} }
+
+\setlength\parindent{0pt}
+
+\begin{document}
+  \maketitle
+
+  \section*{Oppgåve 1}
+    Eg tar utgongspunkt i spenningene $v_a$ og $v_d$ som er definert på
+    standardform (med positiv side nærast prikken). Straumane $i_1$ og $i_2$ er
+    allereie definert på standardform (inn mot prikken).
+
+    \begin{equation}
+      \vec{v} = L\vec{i} \rightarrow
+      \left[ \begin{array}{c}
+        v_a \\
+        v_d \\
+      \end{array} \right]
+      =
+      \left[ \begin{array}{cc}
+        L_1, & M \\
+        M, & L_2 \\
+      \end{array} \right]
+      \cdot
+      \left[ \begin{array}{c}
+        \frac{di_1}{dt} \\
+        \frac{di_2}{dt} \\
+      \end{array} \right]
+    \end{equation}
+
+    spenningene er altså
+    \begin{itemize}
+      \item $v_a(t) = L_1\frac{di_1}{dt} + M\frac{di_2}{dt}$
+      \item $v_d(t) = M\frac{di_1}{dt} + L_2\frac{di_2}{dt}$
+      \item $v_b(t) = -M\frac{di_1}{dt} - L_2\frac{di_2}{dt}$
+      \item $v_c(t) = -L_1\frac{di_1}{dt} - M\frac{di_2}{dt}$
+    \end{itemize}
+
+
+  \section*{Oppgåve 2}
+    Vi kan finne den gjensidige induktansen $M$ frå sjølvinduktansane og koplingskoeffisienten
+    \begin{equation}
+      k = \frac{M}{\sqrt{L_1L_2}} \rightarrow M = 0,6 \cdot \sqrt{10^{-6}} = 6\cdot 10^{-3}[H]
+    \end{equation}
+    Velger meg spenninger og straumar for spolene på standardform og oversetter til
+    frekvensdomenet
+    \begin{itemize}
+      \item $v_1(t) = 10cos(\omega t) \rightarrow V_1 = 10\angle \ang{0}$
+      \item $i_2(t) = 2sin(\omega t) = 2cos(\omega t - \ang{90})
+        \rightarrow I_1 = 2\angle \ang{-90}$
+      \item $V_1 = V_a = 10$
+      \item $I_1 = -I_b = -2j$
+    \end{itemize}
+    setter opp V-I--forhold for spolene
+    \begin{itemize}
+      \item $V_a = j\omega L_1I_a + j\omega MI_b$
+      \item $V_b = j\omega MI_a + j\omega L_2I_b$
+    \end{itemize}
+    løyser likningssettet og finner dei ukjente mengdene
+    \begin{equation}
+      I_a = \frac{V_a - j\omega MI_b}{j\omega L_1}
+      \rightarrow I_a = I_1 = \frac{10-24j^2}{40j} = -0,85j = 0,85\angle \ang{-90}
+    \end{equation}
+    \begin{equation}
+      V_2 = -V_b = -j12\cdot(-0.85j) - 20j^2 = 9,8 = 9,8\angle\ang{0}
+    \end{equation}
+
+  \section*{Oppgåve 3}
+    Vi kan sjå på spenningskjelda at vinkelfrekvensen $\omega = 4$. Oversetter mengdene til
+    frekvensdomenet og setter opp spenningslikningene for den gjensidige induktansen
+    \begin{itemize}
+      \item $V_a = j\omega L_1I_a + j\omega MI_b = 16jI_a + 4jI_b$
+      \item $V_b = j\omega MI_a + j\omega L_2I_b = 4jI_a + 8jI_b$
+    \end{itemize}
+    vi ønsker å finne $v_0$, denne kan vi finne om vi veit straumen i denne greina. Setter
+    opp maskestraumslikninger
+    \begin{itemize}
+      \item $KVL_a\rightarrow 2I_a + j16I_a + j4I_b = 12$
+      \item $KVL_b\rightarrow j4I_a + j8I_b -jI_b + jI_c = 0$
+      \item $KVL_c\rightarrow I_c - jI_c + jI_b = 0$
+    \end{itemize}
+    som vi kan løyse som matrise
+    \begin{equation}
+      Z\vec{i} = \vec{v} \rightarrow
+      \left[ \begin{array}{ccc}
+        2+16j, & 4j, & 0 \\
+        4j, & 7j, & j \\
+        0, & j, & 1-j \\
+      \end{array} \right]
+      \cdot
+      \left[ \begin{array}{c}
+        I_a \\
+        I_b \\
+        I_c \\
+      \end{array} \right]
+      =
+      \left[ \begin{array}{c}
+        12 \\
+        0 \\
+        0 \\
+      \end{array} \right]
+    \end{equation}
+    Finner $I_c = \frac{V_c}{1\si{\ohm}} = 0,322\angle \ang{57.6}$, vi kan gå tilbake til tidsplanet
+    $v_0(t) = 0,32cos(4t + \ang{57.6})[\si{\volt}]$.
+
+
+  \section*{Oppgåve 4}
+    Setter opp spenningslikninger for den gjensidige induktansen
+    \begin{itemize}
+      \item $V_a = 6jI_a + jI_b$
+      \item $V_b = jI_a + 3jI_b$
+    \end{itemize}
+    substituerer for $I_a = I_1$ og $I_b = -I_2$
+    \begin{itemize}
+      \item $V_a = 6jI_1 - jI_2$
+      \item $V_b = jI_1 - 3jI_2$
+    \end{itemize}
+    setter opp maskestraumslikninger
+    \begin{itemize}
+      \item $KVL_1 \rightarrow 5I_1 + V_a + 2I_1 - 2I_2 = 36 \angle \ang{30}$
+      \item $KVL_2 \rightarrow 2I_2 - 2I_1 - V_b - j4I_2 + 4I_2 = 0$
+    \end{itemize}
+    løyser likningssettet og finner straumane
+    \begin{itemize}
+      \item $I_1 = 4,21 - 0,63j = 4,25\angle\ang{-8,51}$
+      \item $I_2 = 1,39 - 0,72j = 1,56\angle\ang{27,5}$
+    \end{itemize}
+
+  \section*{Oppgåve 5}
+    For å maksimere effektoverføringa må vi kompansere med kondensatoren slik at reaktansen
+    går mot null. For å finne impedansen i kretsen sett frå $V_s$ kan vi finne uttrykk
+    $Z = \frac{V_s}{I_a}$. Finner først V-I--forholda over dei magnetisk kopla spolene.
+    \begin{itemize}
+      \item $V_a = j12I_a + j10I_b$
+      \item $V_b = j10I_b + j15I_b$
+    \end{itemize}
+    setter opp maskestraum
+    \begin{itemize}
+      \item $8I_a -jXI_a + V_a = V_s \rightarrow 8I_a ijXI_a + j12I_a +j10I_b = V_s$
+      \item $-V_b -20I_b = 0 \rightarrow -j10I_a -j15I_b -20I_b = 0$
+    \end{itemize}
+    setter inn for $I_b$ og finner impedansen
+    \begin{equation}
+      \frac{V_s}{I_a} = 8 - jX + j12 + j10\frac{j10}{20-j15}
+    \end{equation}
+    forenkler algebraisk og setter den imaginære delen lik null
+    \begin{equation}
+      jX = j12 - \frac{12}{5}j \rightarrow X = 9,6 \si{\ohm}
+    \end{equation}
+
+
+  \section*{Oppgåve 7}
+    For ein ideell transformator veit vi at koplingskoeffisienten $k=1$, altså ein
+    ideell kopling der $M = \sqrt{L_1L_2}$. Det er også gitt at motstanden på begge sidene
+    er $0$ og induktansane går mot uendeleg. Frå dette har vi utleda i forelesning at
+    $N_1i_1 + N_2i_2 = 0$ frå Amperes lov, og frå dette utgår det to karakteristiske
+    forhold:
+    \begin{equation}
+      \frac{V_2}{V_1} = \frac{N_2}{N_1}
+    \end{equation}
+    og
+    \begin{equation}
+      \frac{I_2}{I_1} = -\frac{N_1}{N_2}
+    \end{equation}
+    Setter opp maskestraum med straum inn i spolene og spenninger over spolene (standardform)
+    \begin{itemize}
+      \item $KVL_a: 50I_a - jI_a + V_a = 80$
+      \item $KVL_b: 2I_b + j20I_b + V_b = 0$
+    \end{itemize}
+    sidan dette er ein ideel transformator er straumane og spenningene lineært proporsjonale
+    \begin{itemize}
+      \item $V_b = 2V_a$
+      \item $I_a = -2I_b$
+    \end{itemize}
+    løyser likningssettet og finner $I_b = -I_2$
+    \begin{equation}
+      I_b = -I_2 = \frac{-80}{101-8j} \rightarrow I_2 = \frac{80}{101-8j} = 0,79 \angle \ang{4,52}
+    \end{equation}
+    nå kan vi finne effekten over lastmotstanden
+    \begin{equation}
+      P = I_m^2 R \rightarrow P = 0,79^2\cdot 2 = 1,24 [W]
+    \end{equation}
+
+
+  \newpage
+
+  \section*{Oppgåve 8}
+    Kjeldetransformerer og slår saman straumkjeldene som nå står i parallell
+    \begin{equation}
+      I_s = \frac{36}{2} + 6 = 24[A]
+    \end{equation}
+    Setter opp maskestraumslikninger og forenkler med dei kjente forholda for
+    ideell transformator med viklingsforhold $[2:1]\rightarrow$ $I_b = -2I_a$, $V_a = 2V_b$
+    \begin{itemize}
+      \item $KVL_2: (2-j2)I_a - I_s\cdot 2 + V_a = 0$
+      \item $KVL_3: -j4I_3 + j4I_4 - V_b = 0 \rightarrow V_a = -j8I_3 + j8I_4$
+      \item $KVL_4: (4 -j4 +j4)I_4 + j4I_3 = 0 \rightarrow I_4 = -jI_3$
+    \end{itemize}
+    samskriver $KVL_2$ og $KVL_3$
+    \begin{equation}
+      (2-j2)I_a -48 = j8I_3 -j8I_4 \rightarrow (2-j2)\frac{1}{2}I_3 -48 = j8I_3 +j^28I_3
+    \end{equation}
+    forenkler algebraisk og setter inn for $KVL_4$
+    \begin{equation}
+      I_3 = \frac{48}{9-9j} \rightarrow 
+      I_4 = \frac{48}{j(9-9j)} \rightarrow
+      I_4 = \frac{48}{9+9j}
+    \end{equation}
+    finner $V_0$
+    \begin{equation}
+      V_0 = RI_4 \rightarrow V_0 = 4\frac{48}{9+9j} = 15,08\angle\ang{-45}[\si{\volt}]
+    \end{equation}
+
+
+  \section*{Oppgåve 9}
+    Setter opp maskestraumslikninger med straumane inn mot riktig side av spolene
+    (standardform)
+    \begin{itemize}
+      \item $KVL_1: (9-j)I_1 + V_1 + 8I_2 = 34$
+      \item $KVL_2: (12-j3)I_2 + V_2 + 8I_1 = 0$
+    \end{itemize}
+    sidan det er ein ideell transistor med viklingsforhold $[1:1]$ stemmer det at 
+    \begin{itemize}
+      \item $V_2 = V_1$
+      \item $I_1 = -I_2$
+    \end{itemize}
+    uttrykker som $V_1$ og slår saman $KVL_1$ og $KVL_2$
+    \begin{equation}
+      34 -8I_2 - (9-j)I_1 = -8I_1 - (12-j3)I_2
+    \end{equation}
+    setter inn for $I_2 = -I_1$ og finner $I_0 = -I_2$
+    \begin{equation}
+      34-16I_2 + 9I_2 - jI_2 +12I_2 - j3I_2 = 0 \rightarrow I_0 = -I_2 = \frac{34}{5-j4}
+    \end{equation}
+    finner $V_0$
+    \begin{equation}
+      V_0 = RI_0 \rightarrow V_0 I 4\cdot\frac{34}{5-j4} = 21,24\angle\ang{38,7}[\si{\volt}]
+    \end{equation}
+
+
+  \section*{Oppgåve 10}
+    Definerer impedansane i kvar maske algebraisk
+    \begin{itemize}
+      \item $Z_1 = -j$
+      \item $Z_2 = 1+j$
+      \item $Z_3 = 68-j36$
+    \end{itemize}
+    setter opp maskestraumslikninger (med klokka)
+    \begin{itemize}
+      \item $KVL_3: Z_3I_3 + V_d = 0$
+      \item $KVL_2: Z_2I_2 + V_c - V_b = 0$
+      \item $KVL_1: Z_1I_1 + V_a = V_i$
+    \end{itemize}
+    substituerer for transformatorforholda: $V_a = 2V_b$, $V_d = 4V_c$, $I_2=-I_b = 2I_1$ og
+    $I_3 = -\frac{1}{4}I_2$
+    \begin{itemize}
+      \item $KVL_3: -Z_3I_3 = 4V_c$
+      \item $KVL_{2+3}: V_b = Z_2I_2 - \frac{Z_3I_3}{4}$
+      \item $KVL_1: 2V_b = V_i - Z_1I_1$
+    \end{itemize}
+    slår saman for $V_b$
+    \begin{equation}
+      2Z_2I_2 - \frac{Z_3I_3}{2} + Z_1I_1 = V_i \rightarrow
+      I_1 = \frac{V_i}{4Z_2 + \frac{Z_3}{4} + Z_1}
+    \end{equation}
+    vi har nå eit uttrykk $I = V/Z$ som er Ohms lov. Vi har funne $Z_{ekv}$
+    \begin{equation}
+      Z_{ekv} = 4Z_2 + \frac{Z_3}{4} + Z_1 = 21-j6[\si{\ohm}]
+    \end{equation}
+
+
+  \section*{Oppgåve 11}
+    Definerer impedansane i kvar maske algebraisk
+    \begin{equation}
+      Z = Z_1 = Z_2 = (1+j)
+    \end{equation}
+    Setter opp maskestraumslikninger og
+    substituerer for $I_1 = -2I_2$ og $V_2 = 2V_1$
+    \begin{itemize}
+      \item $ZI_1 + V_1 + V_s = 0 \rightarrow -2ZI_2 + V_1 + V_s = 0$
+      \item $ZI_2 + V_2 = 0 \rightarrow V_1 = -\frac{ZI_2}{2}$
+    \end{itemize}
+    slår saman likningene for $V_1$
+    \begin{equation}
+      V_s = 2ZI_2 + \frac{ZI_2}{2} \rightarrow V_s = \left( 2Z + \frac{Z}{2} \right) I_2
+    \end{equation}
+    vi kjenner $I_2 = - \frac{V_o}{j}$
+    \begin{equation}
+      V_s = -2,5Z\frac{V_o}{j} = 10\sqrt{2}\angle\ang{165}
+    \end{equation}
+
+  \newpage
+
+  \section*{Oppgåve 12}
+    Forenkler høgresida av kretsen vha. impedansrefleksjon
+    \begin{equation}
+      Z_{reflektert} = \frac{V_c}{I_c} = \left( \frac{N_1}{N_2} \right) ^2 Z_L
+      \rightarrow Z_{reflektert} = \frac{1}{4}(8-j4) [\si{\ohm}]
+    \end{equation}
+    Definerer impedansane i dei tri maskene algebraisk
+    \begin{itemize}
+      \item $Z_a = 4$
+      \item $Z_b = -j$
+      \item $Z_c = Z_{reflektert} + 2 = 4-j$
+    \end{itemize}
+    setter opp forhold for den ideelle transformatoren mellom maske $a$ og $b$
+    \begin{itemize}
+      \item $\frac{V_b}{V_a} = \frac{N_2}{N_1}
+        \rightarrow \frac{V_b}{V_a} = \frac{1}{2} 
+        \rightarrow V_b = \frac{1}{2}V_a
+        \rightarrow V_a = 2V_b$
+      \item $\frac{I_b}{I_a} = -\frac{N_1}{N_2}
+        \rightarrow \frac{I_b}{I_a} = -\frac{2}{1}
+        \rightarrow I_b = -2I_a
+        \rightarrow I_a = -\frac{1}{2}I_b$
+    \end{itemize}
+    setter opp maskestraumslikninger og forenkler med forholdet $I_1 = I_b - I_c$
+    \begin{itemize}
+      \item $KVL_a : Z_aI_a +V_a = V_s$
+      \item $KVL_b : Z_bI_b +V_b +I_b - I_c = 0 \rightarrow Z_bI_b + I_1 = 0$
+      \item $KVL_c : Z_cI_c + I_c - I_b = 0 \rightarrow Z_cI_c = I_1$
+    \end{itemize}
+    forenkler vha. forholda for den ideelle transformatoren
+    \begin{itemize}
+      \item $KVL_a : -\frac{1}{2}Z_aI_b +2V_b = V_s$
+      \item $KVL_b : V_b = -Z_bI_b - I_1$
+      \item $KVL_c : I_c = \frac{I_1}{Z_c} \rightarrow I_b = I_1 + \frac{I_1}{Z_c}
+        \rightarrow I_b = (1+\frac{1}{Z_c})I_1$
+    \end{itemize}
+    slår saman $a$ og $b$ for den ukjente verdien $V_b$
+    \begin{equation}
+      KVL_{a+b}:-\frac{1}{2}Z_aI_b -2Z_bI_b - 2I_1 = V_s
+    \end{equation}
+    setter inn for $I_b$
+    \begin{equation}
+      KVL_{a+b+c}:-\frac{1}{2}Z_a(1+\frac{1}{Z_c})I_1 -2Z_b(1+\frac{1}{Z_c})I_1 - 2I_1 = V_s
+    \end{equation}
+    forenkler algebraisk
+    \begin{equation}
+      V_s = \left[-\frac{1}{2}Z_a(1+\frac{1}{Z_c}) -2Z_b(1+\frac{1}{Z_c}) - 2\right]I_1
+      = 30,9\angle\ang{152,8} [\si{\volt}]
+    \end{equation}
+
+\end{document}
